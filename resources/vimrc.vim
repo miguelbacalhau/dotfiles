@@ -123,6 +123,15 @@ let g:phpcomplete_index_composer_command = 'composer'
 autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
 set completeopt=longest,menuone
 
+" === arrow keys alt + ijkl
+nnoremap <M-i> <UP>
+inoremap <M-i> <UP>
+nnoremap <M-j> <LEFT>
+inoremap <M-j> <LEFT>
+nnoremap <M-k> <DOWN>
+inoremap <M-k> <DOWN>
+nnoremap <M-l> <RIGHT>
+inoremap <M-l> <RIGHT>
 
 " === php-vim Configs
 function! PhpSyntaxOverride()
