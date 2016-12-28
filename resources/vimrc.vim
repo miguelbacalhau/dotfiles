@@ -133,6 +133,12 @@ inoremap <M-k> <DOWN>
 nnoremap <M-l> <RIGHT>
 inoremap <M-l> <RIGHT>
 
+" === home and end keys on alt + hn
+nnoremap <M-h> <HOME>
+inoremap <M-h> <HOME>
+nnoremap <M-n> <END>
+inoremap <M-n> <END>
+
 " === php-vim Configs
 function! PhpSyntaxOverride()
   hi! def link phpDocTags  phpDefine
