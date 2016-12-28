@@ -123,9 +123,6 @@ let g:phpcomplete_index_composer_command = 'composer'
 autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
 set completeopt=longest,menuone
 
-" === omnicomplete on spacebar
-inoremap <C-Space> <C-x><C-o>
-inoremap <C-@> <C-Space>
 
 " === php-vim Configs
 function! PhpSyntaxOverride()
