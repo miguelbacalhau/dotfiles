@@ -96,7 +96,6 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='distinguished'
 
 " === easymotion
-let g:EasyMotion_leader_key = '`'
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
@@ -138,22 +137,6 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<C-R>=UltiSnips#ExpandSnippet()"
 
-" === arrow keys alt + ijkl
-nnoremap <M-i> <UP>
-inoremap <M-i> <UP>
-nnoremap <M-j> <LEFT>
-inoremap <M-j> <LEFT>
-nnoremap <M-k> <DOWN>
-inoremap <M-k> <DOWN>
-nnoremap <M-l> <RIGHT>
-inoremap <M-l> <RIGHT>
-
-" === home and end keys on alt + hn
-nnoremap <M-h> <HOME>
-inoremap <M-h> <HOME>
-nnoremap <M-n> <END>
-inoremap <M-n> <END>
-
 " === php-vim Configs
 function! PhpSyntaxOverride()
   hi! def link phpDocTags  phpDefine
@@ -186,14 +169,14 @@ set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
 
 "=== other
-set history=700
-set so=7
+syntax enable
+set encoding=utf8
 set number
+set relativenumber
 set wildmenu
 set wildignore=*~
 set ignorecase
 set smartcase
-set hlsearch
 set incsearch
 set showmatch
 set mat=2
@@ -201,8 +184,6 @@ set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
-syntax enable
-set encoding=utf8
 set nobackup
 set nowb
 set noswapfile
