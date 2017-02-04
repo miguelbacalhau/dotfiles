@@ -18,6 +18,7 @@ Plugin 'mhinz/vim-startify'
 Plugin 'vim-scripts/AfterColors.vim'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'kiddos/malokai.vim'
+Plugin 'ryanoasis/vim-devicons'
 
 " tools plugins
 Plugin 'rking/ag.vim'

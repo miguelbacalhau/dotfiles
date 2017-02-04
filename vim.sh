@@ -20,9 +20,9 @@ wget https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
 vim +PluginInstall +qall
 
 #install powerline fonts
-git clone https://github.com/powerline/fonts.git
-cd fonts
-./install.sh
+git clone https://github.com/ryanoasis/nerd-fonts.git
+cd nerd-fonts
+./install.sh SourceCodePro
 
 #build vimproc
 cd ~/.vim/bundle/vimproc.vim
