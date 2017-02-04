@@ -22,7 +22,7 @@ Plugin 'ryanoasis/vim-devicons'
 
 " tools plugins
 Plugin 'rking/ag.vim'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'airblade/vim-gitgutter'
@@ -114,11 +114,8 @@ let g:EasyMotion_smartcase = 1
 let g:phpqa_messdetector_autorun = 0
 let g:phpqa_codesniffer_args = "--standard=psr2"
 
-" == CtrlP ==
-nmap <C-Tab> :CtrlPBuffer<CR>
-nmap <C-u> :CtrlPMRU<CR>
-
-"== Ctrl funky
+" == CtrlP & funky ==
+nmap <C-b> :CtrlPBuffer<CR>
 nnoremap <C-f> :CtrlPFunky<Cr>
 
 " === completion
