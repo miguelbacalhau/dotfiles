@@ -37,6 +37,8 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'groenewege/vim-less'
 Plugin 'evidens/vim-twig'
 Plugin 'stephpy/vim-yaml'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 call vundle#end()
 filetype plugin indent on
@@ -133,6 +135,11 @@ let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 let g:neocomplete#sources#omni#input_patterns = {}
 let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
 
+" === ultisnipets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<C-R>=UltiSnips#ExpandSnippet()"
 
 " === arrow keys alt + ijkl
 nnoremap <M-i> <UP>
