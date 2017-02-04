@@ -27,11 +27,11 @@ Plugin 'Shougo/vimproc.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'Shougo/neocomplete.vim'
 
 " programming languages plugins
 Plugin 'StanAngeloff/php.vim'
-Plugin 'm2mdas/phpcomplete-extended'
+Plugin 'php-vim/phpcd.vim'
 Plugin 'joonty/vim-phpqa'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'groenewege/vim-less'
@@ -118,10 +118,21 @@ nmap <C-u> :CtrlPMRU<CR>
 "== Ctrl funky
 nnoremap <C-f> :CtrlPFunky<Cr>
 
-" === phpcomplete
-let g:phpcomplete_index_composer_command = 'composer'
-autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
+" === completion
+inoremap <C-Space> <C-x><C-o>
+inoremap <C-@> <C-Space>
 set completeopt=longest,menuone
+let g:neocomplete#enable_at_startup = 1
+
+let g:neocomplete#sources = {}
+let g:neocomplete#sources.php = ['buffer', 'omni', 'ultisnips', 'file']
+
+let g:neocomplete#keyword_patterns = {}
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+let g:neocomplete#sources#omni#input_patterns = {}
+let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+
 
 " === arrow keys alt + ijkl
 nnoremap <M-i> <UP>
@@ -197,4 +208,4 @@ set shiftwidth=4
 set tabstop=4
 set ai "Auto indent
 set nowrap
-set paste
+set paste   " has caused problems with neocomplete

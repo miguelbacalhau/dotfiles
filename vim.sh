@@ -27,7 +27,3 @@ cd fonts
 #build vimproc
 cd ~/.vim/bundle/vimproc.vim
 make
-
-#build youcompleteme
-cd ~/.vim/bundle/YouCompleteMe
-./install.py
