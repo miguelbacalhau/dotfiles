@@ -121,6 +121,7 @@ inoremap <C-Space> <C-x><C-o>
 inoremap <C-@> <C-Space>
 set completeopt=longest,menuone
 let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#auto_completion_start_length = 1
 
 let g:neocomplete#sources = {}
 let g:neocomplete#sources.php = ['buffer', 'omni', 'ultisnips', 'file']
