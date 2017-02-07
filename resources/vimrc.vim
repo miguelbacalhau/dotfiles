@@ -32,7 +32,7 @@ Plugin 'Shougo/neocomplete.vim'
 " programming languages plugins
 Plugin 'StanAngeloff/php.vim'
 Plugin 'php-vim/phpcd.vim'
-Plugin 'joonty/vim-phpqa'
+Plugin 'w0rp/ale'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'groenewege/vim-less'
 Plugin 'evidens/vim-twig'
@@ -95,6 +95,9 @@ nmap <silent> <Tab> <Plug>GoldenViewNext
 let g:airline_powerline_fonts = 1
 let g:airline_theme='distinguished'
 
+" Ale linter
+let g:ale_php_phpcs_standard = 'PSR2'
+
 " === easymotion
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
@@ -107,10 +110,6 @@ map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
 
 let g:EasyMotion_smartcase = 1
-
-" === phpqa
-let g:phpqa_messdetector_autorun = 0
-let g:phpqa_codesniffer_args = "--standard=psr2"
 
 " == CtrlP & funky ==
 nmap <C-b> :CtrlPBuffer<CR>
