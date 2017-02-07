@@ -172,6 +172,7 @@ set guioptions-=L  "remove left-hand scroll bar
 "=== other
 syntax enable
 set encoding=utf8
+set mouse=a
 set number
 set relativenumber
 set wildmenu
