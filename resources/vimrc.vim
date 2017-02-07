@@ -18,12 +18,12 @@ Plugin 'mhinz/vim-startify'
 Plugin 'vim-scripts/AfterColors.vim'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'kiddos/malokai.vim'
-Plugin 'ryanoasis/vim-devicons'
 
 " tools plugins
 Plugin 'rking/ag.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tacahiroy/ctrlp-funky'
+Plugin 'ryanoasis/vim-devicons'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
