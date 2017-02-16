@@ -1,47 +1,42 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'gmarik/Vundle.vim'
+" Specify a directory for plugins
+call plug#begin('~/.vim/plugged')
 
 " vim usability plugins
-Plugin 'zhaocai/GoldenView.Vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'taiansu/nerdtree-ag'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'mhinz/vim-startify'
-Plugin 'vim-scripts/AfterColors.vim'
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'kiddos/malokai.vim'
+Plug 'zhaocai/GoldenView.Vim'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
+Plug 'Lokaltog/vim-easymotion'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'mhinz/vim-startify'
+Plug 'vim-scripts/AfterColors.vim'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'kiddos/malokai.vim'
 
 " tools plugins
-Plugin 'rking/ag.vim'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-commentary'
-Plugin 'Shougo/neocomplete.vim'
+Plug 'junegunn/fzf', { 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/neocomplete.vim'
+Plug 'w0rp/ale', { 'for': 'php' }
 
 " programming languages plugins
-Plugin 'StanAngeloff/php.vim'
-Plugin 'php-vim/phpcd.vim'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'groenewege/vim-less'
-Plugin 'evidens/vim-twig'
-Plugin 'stephpy/vim-yaml'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'w0rp/ale'
+Plug 'StanAngeloff/php.vim', { 'for': 'php' }
+Plug 'php-vim/phpcd.vim', { 'for': 'php', 'do': 'composer update' }
+Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
+Plug 'groenewege/vim-less' , { 'for': 'less' }
+Plug 'evidens/vim-twig', { 'for': 'twig' }
+Plug 'stephpy/vim-yaml', { 'for': 'yml' }
+Plug 'SirVer/ultisnips', { 'for': 'php' }
+Plug 'honza/vim-snippets', { 'for': 'php' }
 
-call vundle#end()
-filetype plugin indent on
+call plug#end()
 
 " === startify
 set viminfo='100,n$HOME/.vim/files/info/viminfo
@@ -174,7 +169,6 @@ set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
 
 "=== other
-syntax enable
 set encoding=utf8
 set termguicolors
 set mouse=a
