@@ -1,18 +1,19 @@
 #!/bin/bash
 
 # install the plugin manager
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 #copy the configurations
-cp resources/nvim.init.vim ~/.config/nvim/init.vim
-mkdir -p ~/.config/nvim/after/colors/
-cp resources/common.vim ~/.config/nvim/after/colors/common.vim
-mkdir -p ~/.config/nvim/files/info/
-touch ~/.config/nvim/files/info/viminfo
+cp resources/vimrc.vim ~/.vimrc
+cp resources/gvimrc.vim ~/.gvimrc
+mkdir -p ~/.vim/after/colors/
+cp resources/common.vim ~/.vim/after/colors/common.vim
+mkdir -p ~/.vim/files/info/
+touch ~/.vim/files/info/viminfo
 
 #install colorscheme
-mkdir -p ~/.config/nvim/colors
-cd ~/.config/nvim/colors
+mkdir -p ~/.vim/colors
+cd ~/.vim/colors
 wget https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
 
 # install all the plugins
