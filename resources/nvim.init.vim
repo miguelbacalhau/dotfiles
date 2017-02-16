@@ -22,8 +22,8 @@ Plugin 'kiddos/malokai.vim'
 
 " tools plugins
 Plugin 'rking/ag.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tacahiroy/ctrlp-funky'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
@@ -115,9 +115,10 @@ let g:EasyMotion_smartcase = 1
 let g:phpqa_messdetector_autorun = 0
 let g:phpqa_codesniffer_args = "--standard=psr2"
 
-" == CtrlP & funky ==
-nmap <C-b> :CtrlPBuffer<CR>
-nnoremap <C-f> :CtrlPFunky<Cr>
+" == fzf  ==
+nmap <C-p> :Files<CR>
+nnoremap <C-b> :Buffers<Cr>
+nnoremap <C-f> :BLines<Cr>
 
 " === completion
 inoremap <C-Space> <C-x><C-o>
