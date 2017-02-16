@@ -100,6 +100,9 @@ let g:ale_sign_column_always = 1
 let g:ale_php_phpcs_standard = 'PSR2'
 
 " === easymotion
+let g:EasyMotion_leader_key = ';'
+map <Leader> <Plug>(easymotion-prefix)
+
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
