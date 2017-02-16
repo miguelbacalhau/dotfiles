@@ -32,13 +32,13 @@ Plugin 'Shougo/deoplete.nvim'
 " programming languages plugins
 Plugin 'StanAngeloff/php.vim'
 Plugin 'php-vim/phpcd.vim'
-Plugin 'w0rp/ale'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'groenewege/vim-less'
 Plugin 'evidens/vim-twig'
 Plugin 'stephpy/vim-yaml'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'w0rp/ale'
 
 call vundle#end()
 filetype plugin indent on
@@ -96,6 +96,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='distinguished'
 
 " Ale linter
+let g:ale_sign_column_always = 1
 let g:ale_php_phpcs_standard = 'PSR2'
 
 " === easymotion
@@ -110,10 +111,6 @@ map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
 
 let g:EasyMotion_smartcase = 1
-
-" === phpqa
-let g:phpqa_messdetector_autorun = 0
-let g:phpqa_codesniffer_args = "--standard=psr2"
 
 " == fzf  ==
 nmap <C-p> :Files<CR>
