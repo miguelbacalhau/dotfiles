@@ -30,7 +30,7 @@ Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 Plug 'php-vim/phpcd.vim', { 'for': 'php', 'do': 'composer update' }
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 Plug 'groenewege/vim-less' , { 'for': 'less' }
-Plug 'evidens/vim-twig', { 'for': 'twig' }
+Plug 'lumiliet/vim-twig'
 Plug 'stephpy/vim-yaml', { 'for': 'yml' }
 Plug 'SirVer/ultisnips', { 'for': 'php' }
 Plug 'honza/vim-snippets', { 'for': 'php' }
