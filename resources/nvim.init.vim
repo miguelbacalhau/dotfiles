@@ -158,6 +158,7 @@ colorscheme molokai
 "=== other
 set encoding=utf8
 set termguicolors
+set mouse=a
 set number
 set relativenumber
 set wildmenu
