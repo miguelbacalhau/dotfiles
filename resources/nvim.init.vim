@@ -155,6 +155,9 @@ map <C-k> mzgg=G`z<CR>
 " === ColorScheme
 colorscheme molokai
 
+" I beam in insert mode
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
+
 "=== other
 set encoding=utf8
 set termguicolors
