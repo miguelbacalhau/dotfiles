@@ -155,9 +155,6 @@ vmap <C-C> "+y
 "=== auto-indentation
 map <C-k> mzgg=G`z<CR>
 
-"=== help my plox (credits to http://vimsheet.com) ~/.vim/help/AGreatVimCheatSheet.html
-:map <silent> <F2> :silent !google-chrome --app="file:///home/miguel/.vim/help/AGreatVimCheatSheet.html" && sleep 0.5 && wmctrl -a "A Great Vim Cheat Sheet" -b add,above &<CR>
-
 " === ColorScheme
 colorscheme molokai
 
