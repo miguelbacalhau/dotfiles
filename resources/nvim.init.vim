@@ -131,10 +131,7 @@ let g:deoplete#omni#input_patterns = {}
 let g:deoplete#omni#input_patterns.php = '[^. \t]->\w*|\w+::\w*'
 
 " ultisnipets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<C-R>=UltiSnips#ExpandSnippet()"
+let g:UltiSnipsExpandTrigger="<C-j>"
 
 " === php-vim Configs
 function! PhpSyntaxOverride()
