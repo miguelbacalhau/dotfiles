@@ -152,6 +152,10 @@ colorscheme onedark
 " I beam in insert mode
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 
+" persistent undo
+set undofile
+set undodir=~/.config/nvim/undofiles
+
 "=== other
 set encoding=utf8
 set termguicolors
