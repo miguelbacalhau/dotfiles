@@ -10,11 +10,6 @@ cp resources/common.vim ~/.config/nvim/after/colors/common.vim
 mkdir -p ~/.config/nvim/files/info/
 touch ~/.config/nvim/files/info/viminfo
 
-#install colorscheme
-mkdir -p ~/.config/nvim/colors
-cd ~/.config/nvim/colors
-wget https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
-
 # install all the plugins
 nvim +PlugInstall
 
