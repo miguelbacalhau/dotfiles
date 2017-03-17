@@ -161,7 +161,6 @@ set encoding=utf8
 set termguicolors
 set mouse=a
 set number
-set relativenumber
 set wildmenu
 set wildignore=*~
 set ignorecase
