@@ -14,7 +14,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-startify'
 Plug 'vim-scripts/AfterColors.vim'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'kiddos/malokai.vim'
+Plug 'joshdick/onedark.vim'
 
 " tools plugins
 Plug 'junegunn/fzf', { 'do': './install --bin' }
@@ -87,7 +87,7 @@ nmap <silent> <Tab> <Plug>GoldenViewNext
 
 " === Airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme='distinguished'
+let g:airline_theme='onedark'
 
 " Ale linter
 let g:ale_sign_column_always = 1
@@ -153,7 +153,7 @@ vmap <C-C> "+y
 map <C-k> mzgg=G`z<CR>
 
 " === ColorScheme
-colorscheme molokai
+colorscheme onedark
 
 " I beam in insert mode
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
