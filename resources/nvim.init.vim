@@ -122,13 +122,7 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_start_length = 1
 
 let g:deoplete#sources = {}
-let g:deoplete#sources.php = ['buffer', 'omni', 'ultisnips', 'file']
-
-let g:deoplete#keyword_patterns = {}
-let g:deoplete#keyword_patterns['default'] = '\h\w*'
-
-let g:deoplete#omni#input_patterns = {}
-let g:deoplete#omni#input_patterns.php = '[^. \t]->\w*|\w+::\w*'
+let g:deoplete#sources.php = ['buffer', 'phpcd', 'ultisnips', 'file']
 
 " ultisnipets
 let g:UltiSnipsExpandTrigger="<C-j>"
