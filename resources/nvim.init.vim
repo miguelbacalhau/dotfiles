@@ -27,7 +27,7 @@ Plug 'w0rp/ale', { 'for': 'php' }
 
 " programming languages plugins
 Plug 'StanAngeloff/php.vim', { 'for': 'php' }
-Plug 'php-vim/phpcd.vim', { 'for': 'php', 'do': 'composer update' }
+Plug 'php-vim/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 Plug 'groenewege/vim-less' , { 'for': 'less' }
 Plug 'lumiliet/vim-twig'
