@@ -190,3 +190,5 @@ set tabstop=4
 set ai "Auto indent
 set nowrap
 set hidden
+set splitright
+set splitbelow
