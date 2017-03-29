@@ -127,7 +127,6 @@ inoremap <C-Space> <C-x><C-o>
 inoremap <C-@> <C-Space>
 set completeopt=longest,menuone
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_start_length = 1
 let g:deoplete#enable_ignore_case = 0
 let g:deoplete#enable_smart_case = 0
 
