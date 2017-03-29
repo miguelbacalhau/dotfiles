@@ -1,22 +1,25 @@
-# Miguel great gVim installer
+# Bacalhau Neovim install
 
 ### Description
-This is a basic shell script to install my vim configuration and plugins
+This is a basic shell script to install my neovim configuration and plugins
 
 ### Requirements
 
-Install vim and gvim or neovim in your system.
+Install vim *(Outdated)* or neovim in your system.
 
 ### Installation
-
-#### Vim
-Just run the script
-``` sh
-$ ./vim.sh
-```
 
 #### NeoVim
 Just run the script
 ``` sh
 $ ./nvim.sh
+```
+
+#### Vim *(Outdated)*
+I no longer use vim, and the configurations are outdated.
+However the install script should still work
+
+Just run the script
+``` sh
+$ ./vim.sh
 ```
