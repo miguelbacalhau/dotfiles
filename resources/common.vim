@@ -1,9 +1,5 @@
 highlight Normal ctermbg=none guibg=#2d2d2d
 
-highlight Pmenu guibg=#232526 gui=bold
-highlight Pmenu ctermbg=236   gui=bold
+highlight phpVarSelector guifg=#E5C07B
 
-highlight Search guibg=#7fbf00 gui=bold
 
-highlight airline_tabfill guibg=#232526 gui=bold
-highlight airline_tabfill ctermbg=236   gui=bold
