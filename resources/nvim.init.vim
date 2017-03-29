@@ -29,6 +29,7 @@ Plug 'mklabs/split-term.vim'
 
 " programming languages plugins
 Plug 'StanAngeloff/php.vim', { 'for': 'php' }
+Plug '2072/PHP-Indenting-for-VIm', {'for': 'php' }
 Plug 'php-vim/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 Plug 'groenewege/vim-less' , { 'for': 'less' }
