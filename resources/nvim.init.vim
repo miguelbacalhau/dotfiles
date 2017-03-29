@@ -24,6 +24,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'w0rp/ale', { 'for': 'php' }
+Plug 'brooth/far.vim'
 
 " programming languages plugins
 Plug 'StanAngeloff/php.vim', { 'for': 'php' }
@@ -113,6 +114,9 @@ let g:EasyMotion_smartcase = 1
 nmap <C-p> :Files<CR>
 nnoremap <C-b> :Buffers<Cr>
 nnoremap <C-f> :BLines<Cr>
+
+" == far
+let g:far#source = 'agnvim'
 
 " === completion
 inoremap <C-Space> <C-x><C-o>
