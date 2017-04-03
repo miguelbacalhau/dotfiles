@@ -116,9 +116,11 @@ let g:EasyMotion_smartcase = 1
 noremap <C-T> :Term<CR>
 
 " == fzf  ==
-nmap <C-p> :Files<CR>
+nnoremap <C-p> :Files<CR>
 nnoremap <C-b> :Buffers<Cr>
 nnoremap <C-f> :BLines<Cr>
+nnoremap <C-h> :History<Cr>
+nnoremap <C-s> :Snippets<Cr>
 
 " == far
 let g:far#source = 'agnvim'
