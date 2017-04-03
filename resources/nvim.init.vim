@@ -154,16 +154,16 @@ nmap <C-V> "+gP
 imap <C-V> <ESC>"+gpa
 vmap <C-C> "+y
 
-"=== auto-indentation
-map <C-k> mzgg=G`z<CR>
+" === auto-indentation
+map <C-y> mzgg=G`z<CR>
 
 " === ColorScheme
 colorscheme onedark
 
-" I beam in insert mode
+" === I beam in insert mode
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 
-" persistent undo
+" === persistent undo
 set undofile
 set undodir=~/.config/nvim/undofiles
 
