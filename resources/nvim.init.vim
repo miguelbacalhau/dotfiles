@@ -192,3 +192,4 @@ set nowrap
 set hidden
 set splitright
 set splitbelow
+set dictionary=/usr/share/dict/words
