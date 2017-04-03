@@ -95,6 +95,7 @@ let g:airline_theme='onedark'
 " Ale linter
 let g:ale_sign_column_always = 1
 let g:ale_php_phpcs_standard = 'PSR2'
+let g:ale_lint_delay = 1000 " 1 second
 
 " === easymotion
 let g:EasyMotion_leader_key = ';'
