@@ -132,6 +132,10 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_ignore_case = 0
 let g:deoplete#enable_smart_case = 0
 
+" === phpcd
+nnoremap <silent> gd :call phpcd#JumpToDefinition('normal')<CR>
+nnoremap <silent> gb :call phpcd#JumpBack()<CR>
+
 let g:deoplete#sources = {}
 let g:deoplete#sources.php = ['buffer', 'phpcd', 'ultisnips', 'file']
 
