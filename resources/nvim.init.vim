@@ -125,8 +125,10 @@ set undofile
 set undodir=~/.config/nvim/undofiles
 
 "=== other
+if $COLORTERM == 'truecolor' || $TERM == 'st-256color' || $TERM == 'screen-256color'
+    set termguicolors
+endif
 set encoding=utf8
-set termguicolors
 set mouse=a
 set number
 set wildmenu
