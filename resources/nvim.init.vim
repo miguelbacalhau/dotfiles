@@ -31,8 +31,6 @@ Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 Plug 'groenewege/vim-less' , { 'for': 'less' }
 Plug 'lumiliet/vim-twig'
 Plug 'stephpy/vim-yaml', { 'for': 'yml' }
-Plug 'SirVer/ultisnips', { 'for': 'php' }
-Plug 'honza/vim-snippets', { 'for': 'php' }
 
 call plug#end()
 
@@ -114,7 +112,6 @@ nnoremap <C-p> :Files<CR>
 nnoremap <C-b> :Buffers<Cr>
 nnoremap <C-f> :BLines<Cr>
 nnoremap <C-h> :History<Cr>
-nnoremap <C-s> :Snippets<Cr>
 
 " === completion
 set completeopt=longest,menuone
@@ -122,10 +119,6 @@ set completeopt=longest,menuone
 " === phpcd
 nnoremap <silent> gd :call phpcd#JumpToDefinition('normal')<CR>
 nnoremap <silent> gb :call phpcd#JumpBack()<CR>
-
-
-" ultisnipets
-let g:UltiSnipsExpandTrigger="<C-j>"
 
 " === php-vim Configs
 function! PhpSyntaxOverride()
