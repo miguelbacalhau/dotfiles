@@ -22,7 +22,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'w0rp/ale', { 'for': 'php' }
-Plug 'brooth/far.vim'
 Plug 'mklabs/split-term.vim'
 
 " programming languages plugins
@@ -120,9 +119,6 @@ nnoremap <C-b> :Buffers<Cr>
 nnoremap <C-f> :BLines<Cr>
 nnoremap <C-h> :History<Cr>
 nnoremap <C-s> :Snippets<Cr>
-
-" == far
-let g:far#source = 'agnvim'
 
 " === completion
 set completeopt=longest,menuone
