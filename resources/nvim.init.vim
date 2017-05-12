@@ -27,7 +27,7 @@ Plug 'w0rp/ale', { 'for': 'php' }
 Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 Plug '2072/PHP-Indenting-for-VIm', {'for': 'php' }
 Plug 'php-vim/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
-Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'groenewege/vim-less' , { 'for': 'less' }
 Plug 'lumiliet/vim-twig'
 Plug 'stephpy/vim-yaml', { 'for': 'yml' }
