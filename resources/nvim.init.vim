@@ -12,7 +12,6 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-startify'
-Plug 'vim-scripts/AfterColors.vim'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'joshdick/onedark.vim'
 
