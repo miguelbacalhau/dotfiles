@@ -49,7 +49,6 @@ set laststatus=2
 
 " GoldenView
 let g:goldenview__enable_default_mapping = 0
-nmap <silent> <Tab> <Plug>GoldenViewNext
 
 " === Airline
 let g:airline_powerline_fonts = 1
