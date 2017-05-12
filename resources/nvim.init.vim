@@ -22,7 +22,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'w0rp/ale', { 'for': 'php' }
-Plug 'mklabs/split-term.vim'
 
 " programming languages plugins
 Plug 'StanAngeloff/php.vim', { 'for': 'php' }
@@ -109,9 +108,6 @@ map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
 
 let g:EasyMotion_smartcase = 1
-
-" == neo terminal
-noremap <C-T> :Term<CR>
 
 " == fzf  ==
 nnoremap <C-p> :Files<CR>
