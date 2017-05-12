@@ -54,6 +54,9 @@ let g:goldenview__enable_default_mapping = 0
 " === Airline
 let g:airline_powerline_fonts = 1
 let g:airline_theme='onedark'
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_section_y=''
 
 " Ale linter
 let g:ale_sign_column_always = 1
