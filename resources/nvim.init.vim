@@ -155,3 +155,7 @@ set hidden
 set splitright
 set splitbelow
 set dictionary=/usr/share/dict/words
+
+" st del key hack
+map <F1> <del>
+map! <F1> <del>
