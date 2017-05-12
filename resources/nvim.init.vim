@@ -84,9 +84,6 @@ nnoremap <C-h> :History<Cr>
 " === completion
 set completeopt=longest,menuone
 
-" === phpcd
-nnoremap <silent> gd :call phpcd#JumpToDefinition('normal')<CR>
-nnoremap <silent> gb :call phpcd#JumpBack()<CR>
 
 " === php-vim Configs
 function! PhpSyntaxOverride()
