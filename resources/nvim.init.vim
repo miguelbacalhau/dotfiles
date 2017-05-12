@@ -21,7 +21,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
-Plug 'w0rp/ale', { 'for': 'php' }
+Plug 'w0rp/ale', { 'for': ['php', 'javascript', 'go'] }
 
 " programming languages plugins
 Plug 'StanAngeloff/php.vim', { 'for': 'php' }
@@ -31,6 +31,7 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'groenewege/vim-less' , { 'for': 'less' }
 Plug 'lumiliet/vim-twig'
 Plug 'stephpy/vim-yaml', { 'for': 'yml' }
+Plug 'fatih/vim-go', { 'for': 'go' }
 
 call plug#end()
 
@@ -99,6 +100,13 @@ augroup phpSyntaxOverride
   autocmd FileType php call PhpSyntaxOverride()
 augroup END
 
+" === go-vim
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_types = 1
+let g:go_highlight_build_constraints = 1
 " === copy paste bindings
 nmap <C-V> "+gP
 imap <C-V> <ESC>"+gpa
