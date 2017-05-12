@@ -115,7 +115,10 @@ map <C-y> mzgg=G`z<CR>
 colorscheme onedark
 
 " === I beam in insert mode
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
+" - neovim 0.1.7
+" let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
+" - neovim 0.2
+set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 
 " === persistent undo
 set undofile
