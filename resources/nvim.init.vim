@@ -36,8 +36,8 @@ call plug#end()
 
 " === startify
 set viminfo='100,n$HOME/.config/nvim/files/info/viminfo
-let g:startify_bookmarks = [ '~/.vimrc' ]
-let g:startify_session_dir = '~/.vim/session'
+let g:startify_bookmarks = [ '~/.config/nvim/init.vim' ]
+let g:startify_session_dir = '~/.config/nvim/session'
 let g:startify_files_number = 5
 let g:startify_change_to_dir = 0
 " startify - close session and display Startify with Ctrl-Q
