@@ -45,7 +45,6 @@ let g:startify_session_dir = '~/.config/nvim/session'
 let g:startify_files_number = 5
 let g:startify_change_to_dir = 0
 " startify - close session and display Startify with Ctrl-Q
-noremap <silent> <C-q> :SClose<CR>
 
 " === NERDTree
 nmap <C-n> :NERDTreeToggle<CR>
@@ -69,12 +68,6 @@ let g:ale_php_phpcs_standard = 'PSR2'
 let g:EasyMotion_leader_key = ';'
 map <Leader> <Plug>(easymotion-prefix)
 
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
-
-
 let g:EasyMotion_smartcase = 1
 
 " == fzf  ==
@@ -85,7 +78,6 @@ nnoremap <C-h> :History<Cr>
 
 " === completion
 set completeopt=longest,menuone
-
 
 " === php-vim Configs
 function! PhpSyntaxOverride()
@@ -161,8 +153,6 @@ set tabstop=4
 set ai "Auto indent
 set nowrap
 set hidden
-set splitright
-set splitbelow
 set dictionary=/usr/share/dict/words
 
 " st del key hack
