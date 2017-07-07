@@ -97,10 +97,6 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_types = 1
 let g:go_highlight_build_constraints = 1
-" === copy paste bindings
-nmap <C-V> "+gP
-imap <C-V> <ESC>"+gpa
-vmap <C-C> "+y
 
 " === auto-indentation
 map <C-y> mzgg=G`z<CR>
@@ -155,6 +151,7 @@ set nowrap
 set hidden
 set dictionary=/usr/share/dict/words
 set noshowcmd
+set clipboard=unnamedplus
 
 " st del key hack
 map <F1> <del>
