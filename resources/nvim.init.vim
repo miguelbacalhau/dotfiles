@@ -64,7 +64,6 @@ let g:airline_section_y=''
 " Ale linter
 let g:ale_sign_column_always = 1
 let g:ale_php_phpcs_standard = 'PSR2'
-let g:ale_lint_on_text_changed = 'normal'
 
 " === easymotion
 let g:EasyMotion_leader_key = ';'
