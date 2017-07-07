@@ -21,6 +21,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 Plug 'w0rp/ale', { 'for': ['php', 'javascript', 'go'] }
 
 " programming languages plugins
