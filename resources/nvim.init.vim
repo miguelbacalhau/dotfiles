@@ -154,6 +154,7 @@ set ai "Auto indent
 set nowrap
 set hidden
 set dictionary=/usr/share/dict/words
+set noshowcmd
 
 " st del key hack
 map <F1> <del>
