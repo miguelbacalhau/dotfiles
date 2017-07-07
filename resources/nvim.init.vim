@@ -29,6 +29,8 @@ Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 Plug '2072/PHP-Indenting-for-VIm', {'for': 'php' }
 Plug 'php-vim/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'ternjs/tern_for_vim', { 'for': 'javascript', 'do': 'npm install' }
+Plug 'posva/vim-vue', { 'for': 'vue' }
 Plug 'groenewege/vim-less' , { 'for': 'less' }
 Plug 'lumiliet/vim-twig'
 Plug 'stephpy/vim-yaml', { 'for': 'yml' }
@@ -111,6 +113,12 @@ vmap <C-C> "+y
 
 " === auto-indentation
 map <C-y> mzgg=G`z<CR>
+
+" === html/javascript/typescript 2 spaces instead of 4
+au FileType html setl sw=2 sts=2
+au FileType javascript setl sw=2 sts=2
+au FileType vue setl sw=2 sts=2
+au FileType typescript setl sw=2 sts=2
 
 " === ColorScheme
 colorscheme onedark
