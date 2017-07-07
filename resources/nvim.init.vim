@@ -32,7 +32,7 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'ternjs/tern_for_vim', { 'for': 'javascript', 'do': 'npm install' }
 Plug 'posva/vim-vue', { 'for': 'vue' }
 Plug 'groenewege/vim-less' , { 'for': 'less' }
-Plug 'lumiliet/vim-twig'
+Plug 'lumiliet/vim-twig' " twig file type not working
 Plug 'stephpy/vim-yaml', { 'for': 'yml' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 
@@ -127,9 +127,6 @@ noremap <silent> <c-d> 3j
 colorscheme onedark
 
 " === I beam in insert mode
-" - neovim 0.1.7
-" let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
-" - neovim 0.2
 set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 
 " === persistent undo
