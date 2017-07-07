@@ -119,6 +119,10 @@ au FileType javascript setl sw=2 sts=2
 au FileType vue setl sw=2 sts=2
 au FileType typescript setl sw=2 sts=2
 
+" === scrolling
+noremap <silent> <c-u> 3k
+noremap <silent> <c-d> 3j
+
 " === ColorScheme
 colorscheme onedark
 
