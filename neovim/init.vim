@@ -35,8 +35,16 @@ Plug 'groenewege/vim-less' , { 'for': 'less' }
 Plug 'lumiliet/vim-twig' " twig file type not working
 Plug 'stephpy/vim-yaml', { 'for': 'yml' }
 Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+Plug 'IN3D/vim-raml', { 'for': 'raml' }
 
 call plug#end()
+
+noremap <C-c> <Esc>
+inoremap <C-c> <Esc>
+vnoremap <C-c> <Esc>
+cnoremap <C-c> <Esc>
+inoremap <C-v> <nop>
 
 " === startify
 set viminfo='100,n$HOME/.config/nvim/files/info/viminfo
@@ -74,7 +82,7 @@ let g:EasyMotion_smartcase = 1
 nnoremap <C-p> :Files<CR>
 nnoremap <C-b> :Buffers<Cr>
 nnoremap <C-f> :BLines<Cr>
-nnoremap <C-h> :History<Cr>
+nnoremap <C-h> :BTags<Cr>
 
 " === completion
 set completeopt=longest,menuone
@@ -108,8 +116,10 @@ au FileType vue setl sw=2 sts=2
 au FileType typescript setl sw=2 sts=2
 
 " === scrolling
-noremap <silent> <c-u> 3k
-noremap <silent> <c-d> 3j
+noremap <silent> <c-u> <ScrollWheelUp>
+noremap <silent> <c-d> <ScrollWheelDown>
+" noremap <silent> <c-u> 3k
+" noremap <silent> <c-d> 3j
 
 " === ColorScheme
 colorscheme onedark
