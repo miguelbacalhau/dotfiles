@@ -14,6 +14,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-startify'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'joshdick/onedark.vim'
+Plug 'junegunn/vim-peekaboo'
 
 " tools plugins
 Plug 'junegunn/fzf', { 'do': './install --bin' }
