@@ -105,12 +105,6 @@ let g:go_highlight_build_constraints = 1
 " === auto-indentation
 map <C-y> mzgg=G`z<CR>
 
-" === html/javascript/typescript 2 spaces instead of 4
-au FileType html setl sw=2 sts=2
-au FileType javascript setl sw=2 sts=2
-au FileType vue setl sw=2 sts=2
-au FileType typescript setl sw=2 sts=2
-
 " === scrolling
 noremap <silent> <C-u> <C-y>
 noremap <silent> <C-d> <C-e>
