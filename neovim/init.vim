@@ -74,7 +74,6 @@ let g:EasyMotion_smartcase = 1
 
 " == fzf  ==
 nnoremap <C-p> :Files<CR>
-nnoremap <C-h> :BTags<Cr>
 nnoremap <C-b> :Buffers<CR>
 nnoremap <C-f> :BLines<CR>
 
