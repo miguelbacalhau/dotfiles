@@ -74,9 +74,9 @@ let g:EasyMotion_smartcase = 1
 
 " == fzf  ==
 nnoremap <C-p> :Files<CR>
-nnoremap <C-b> :Buffers<Cr>
-nnoremap <C-f> :BLines<Cr>
 nnoremap <C-h> :BTags<Cr>
+nnoremap <C-b> :Buffers<CR>
+nnoremap <C-f> :BLines<CR>
 
 " === completion
 set completeopt=longest,menuone
@@ -110,8 +110,8 @@ au FileType vue setl sw=2 sts=2
 au FileType typescript setl sw=2 sts=2
 
 " === scrolling
-noremap <silent> <c-u> <c-y>
-noremap <silent> <c-d> <c-e>
+noremap <silent> <C-u> <C-y>
+noremap <silent> <C-d> <C-e>
 
 " === ColorScheme
 colorscheme onedark
