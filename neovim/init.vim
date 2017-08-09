@@ -114,6 +114,10 @@ au FileType typescript setl sw=2 sts=2
 noremap <silent> <C-u> <C-y>
 noremap <silent> <C-d> <C-e>
 
+" === change window
+noremap <C-h> <C-w>h
+noremap <C-l> <C-w>l
+
 " === ColorScheme
 colorscheme onedark
 
