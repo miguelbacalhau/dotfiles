@@ -6,8 +6,8 @@ call plug#begin('~/.config/nvim/plugged')
 
 " vim usability plugins
 Plug 'zhaocai/GoldenView.Vim'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeFind' }
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeFind' }
 Plug 'Lokaltog/vim-easymotion'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -50,7 +50,7 @@ let g:startify_change_to_dir = 0
 " startify - close session and display Startify with Ctrl-Q
 
 " === NERDTree
-nmap <C-n> :NERDTreeToggle<CR>
+nmap <C-n> :NERDTreeFind<CR>
 set laststatus=2
 
 " GoldenView
