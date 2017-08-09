@@ -40,12 +40,6 @@ Plug 'IN3D/vim-raml', { 'for': 'raml' }
 
 call plug#end()
 
-noremap <C-c> <Esc>
-inoremap <C-c> <Esc>
-vnoremap <C-c> <Esc>
-cnoremap <C-c> <Esc>
-inoremap <C-v> <nop>
-
 " === startify
 set viminfo='100,n$HOME/.config/nvim/files/info/viminfo
 let g:startify_bookmarks = [ '~/.config/nvim/init.vim' ]
