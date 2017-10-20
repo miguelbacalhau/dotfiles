@@ -30,11 +30,10 @@ Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 nmap <silent> <C-n> :NERDTreeToggle<CR>
 set laststatus=2
 
-" === easymotion
-Plug 'Lokaltog/vim-easymotion'
-let g:EasyMotion_leader_key = ';'
-let g:EasyMotion_smartcase = 1
-map <Leader> <Plug>(easymotion-prefix)
+" === sneak motion
+Plug 'justinmk/vim-sneak'
+let g:sneak#label = 1
+hi! link Sneak Search
 
 " === Airline
 Plug 'bling/vim-airline'
