@@ -20,10 +20,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/vim-peekaboo'
 
-" === GoldenView
-Plug 'zhaocai/GoldenView.Vim'
-let g:goldenview__enable_default_mapping = 0
-
 " === NERDTree
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
@@ -174,6 +170,8 @@ set dictionary=/usr/share/dict/words
 set noshowcmd
 " === use system clipboard
 set clipboard=unnamedplus
+" === windows equal size
+set equalalways
 
 " st del key HACK
 map <F1> <del>
