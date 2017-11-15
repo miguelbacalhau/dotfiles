@@ -5,6 +5,9 @@ set nocompatible              " be iMproved, required
 filetype off    " required
 call plug#begin('~/.config/nvim/plugged') " Directory for plugins
 
+" === leader
+let mapleader=" "
+
 " === Colorscheme
 Plug 'joshdick/onedark.vim'
 
@@ -20,7 +23,7 @@ Plug 'junegunn/vim-peekaboo'
 " === NERDTree
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
-nmap <silent> <C-n> :NERDTreeToggle<CR>
+nmap <silent> <leader>n :NERDTreeToggle<CR>
 set laststatus=2
 
 " === sneak motion
@@ -48,9 +51,9 @@ let g:startify_change_to_dir = 0
 " === fzf
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
-nnoremap <C-p> :Files<CR>
-nnoremap <C-b> :Buffers<CR>
-nnoremap <C-f> :BLines<CR>
+nnoremap <leader>p :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>f :BLines<CR>
 
 " === Ale linter
 Plug 'w0rp/ale'
@@ -103,7 +106,7 @@ call plug#end()
 " === Mappings ===
 " ================
 " === indent file
-map <C-y> mzgg=G`z
+map <leader>y mzgg=G`z
 
 " ===============
 " === Configs ===
