@@ -104,12 +104,6 @@ call plug#end()
 " ================
 " === indent file
 map <C-y> mzgg=G`z
-" === scrolling
-noremap <silent> <C-u> <C-y>
-noremap <silent> <C-d> <C-e>
-" === change window
-noremap <C-h> <C-w>h
-noremap <C-l> <C-w>l
 
 " ===============
 " === Configs ===
