@@ -8,9 +8,6 @@ call plug#begin('~/.config/nvim/plugged') " Directory for plugins
 " === Colorscheme
 Plug 'joshdick/onedark.vim'
 
-" === WhiteSpace
-Plug 'ntpeters/vim-better-whitespace'
-
 " === git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -64,7 +61,6 @@ let g:ale_lint_on_insert_leave = 1
 
 " === PHP
 Plug 'StanAngeloff/php.vim', { 'for': 'php' }
-Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
 Plug 'php-vim/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 function! PhpSyntaxOverride()
     hi! def link phpDocTags  phpDefine
