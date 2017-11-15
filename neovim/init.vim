@@ -172,7 +172,3 @@ set noshowcmd
 set clipboard=unnamedplus
 " === windows equal size
 set equalalways
-
-" st del key HACK
-map <F1> <del>
-map! <F1> <del>
