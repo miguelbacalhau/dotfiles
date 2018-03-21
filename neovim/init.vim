@@ -59,6 +59,9 @@ let g:ale_sign_column_always = 1
 let g:ale_php_phpcs_standard = 'PSR2'
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
+let g:ale_fixers = {
+\   'javascript': ['prettier', 'eslint'],
+\}
 
 " === PHP
 call minpac#add('StanAngeloff/php.vim')
@@ -85,6 +88,7 @@ let g:go_highlight_build_constraints = 1
 " === Javascript
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('leafgarland/typescript-vim')
+call minpac#add('mxw/vim-jsx')
 
 " === less
 call minpac#add('groenewege/vim-less')
