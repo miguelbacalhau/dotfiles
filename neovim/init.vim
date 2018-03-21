@@ -93,6 +93,18 @@ call minpac#add('groenewege/vim-less')
 call minpac#add('stephpy/vim-yaml')
 
 " ================
+" == StatusLine ==
+" ================
+set laststatus=2
+set statusline=
+set statusline+=%1*\ %-2.4{toupper(mode())}         " Current mode
+set statusline+=%0*\ %{fugitive#head()}             " Git Branch name
+set statusline+=%0*\ %<%t\ %3*\ %R\ %M\ %w\         " File+path
+set statusline+=%*
+set statusline+=%=                             " Space
+set statusline+=%2*\ %3p%%\ %l:\ %c\                " Rownumber/total (%)
+
+" ===============
 " === Mappings ===
 " ================
 " === indent file
@@ -101,8 +113,14 @@ map <leader>y mzgg=G`z
 " ===============
 " === Configs ===
 " ===============
+syntax on
 " === colorscheme
 colorscheme onedark
+let s:colors = onedark#GetColors()
+call onedark#set_highlight("User1", { "bg": s:colors.green, "fg": s:colors.black, "gui": "bold" })
+call onedark#set_highlight("User2", { "bg": s:colors.green, "fg": s:colors.black })
+call onedark#set_highlight("User3", { "bg": s:colors.cursor_grey, "fg": s:colors.red })
+
 " === true colors support
 set termguicolors
 " === completion
