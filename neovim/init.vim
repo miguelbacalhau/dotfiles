@@ -177,3 +177,5 @@ set noshowcmd
 set clipboard=unnamedplus
 " === windows equal size
 set equalalways
+" === update time
+set updatetime=100
