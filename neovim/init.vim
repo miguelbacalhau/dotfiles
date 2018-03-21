@@ -18,7 +18,6 @@ Plug 'airblade/vim-gitgutter'
 " === helpfull commands
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'junegunn/vim-peekaboo'
 
 " === NERDTree
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -30,15 +29,6 @@ set laststatus=2
 Plug 'justinmk/vim-sneak'
 let g:sneak#label = 1
 hi! link Sneak Search
-
-" === Airline
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-let g:airline_powerline_fonts = 1
-let g:airline_theme='onedark'
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-let g:airline_section_y=''
 
 " === startify
 Plug 'mhinz/vim-startify'
@@ -86,19 +76,14 @@ let g:go_highlight_build_constraints = 1
 
 " === Javascript
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'ternjs/tern_for_vim', { 'for': 'javascript', 'do': 'npm install' }
-Plug 'posva/vim-vue', { 'for': 'vue' }
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 
 " === less
 Plug 'groenewege/vim-less' , { 'for': 'less' }
 
-" === twig
-Plug 'lumiliet/vim-twig' " twig file type not working
 
 " === YML & RAML
 Plug 'stephpy/vim-yaml', { 'for': 'yml' }
-Plug 'IN3D/vim-raml', { 'for': 'raml' }
 
 call plug#end()
 
