@@ -2,36 +2,44 @@
 " === Plugings ===
 " ================
 set nocompatible              " be iMproved, required
-filetype off    " required
-call plug#begin('~/.config/nvim/plugged') " Directory for plugins
+
+packadd minpac
+packadd onedark.vim
+
+call minpac#init()
+call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 " === leader
 let mapleader=" "
 
 " === Colorscheme
-Plug 'joshdick/onedark.vim'
+call minpac#add('joshdick/onedark.vim', {'type': 'opt'})
 
 " === git
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+call minpac#add('tpope/vim-fugitive')
+call minpac#add('airblade/vim-gitgutter')
 
 " === helpfull commands
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
+call minpac#add('tpope/vim-commentary')
+call minpac#add('tpope/vim-surround')
 
 " === NERDTree
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
+call minpac#add('scrooloose/nerdtree')
+call minpac#add('Xuyuanp/nerdtree-git-plugin')
 nmap <silent> <leader>n :NERDTreeToggle<CR>
+nmap <silent> <leader>nn :NERDTreeToggle<CR>
+nmap <silent> <leader>nf :NERDTreeFind<CR>
+let g:NERDTreeQuitOnOpen = 1
+let NERDTreeStatusline="TREE"
 set laststatus=2
 
 " === sneak motion
-Plug 'justinmk/vim-sneak'
+call minpac#add('justinmk/vim-sneak')
 let g:sneak#label = 1
 hi! link Sneak Search
 
 " === startify
-Plug 'mhinz/vim-startify'
+call minpac#add('mhinz/vim-startify')
 set viminfo='100,n$HOME/.config/nvim/files/info/viminfo
 let g:startify_bookmarks = [ '~/.config/nvim/init.vim' ]
 let g:startify_session_dir = '~/.config/nvim/session'
@@ -39,22 +47,22 @@ let g:startify_files_number = 5
 let g:startify_change_to_dir = 0
 
 " === fzf
-Plug 'junegunn/fzf', { 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
+call minpac#add('junegunn/fzf', { 'do': './install --bin' })
+call minpac#add('junegunn/fzf.vim')
 nnoremap <leader>p :Files<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>f :BLines<CR>
 
 " === Ale linter
-Plug 'w0rp/ale'
+call minpac#add('w0rp/ale')
 let g:ale_sign_column_always = 1
 let g:ale_php_phpcs_standard = 'PSR2'
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 
 " === PHP
-Plug 'StanAngeloff/php.vim', { 'for': 'php' }
-Plug 'php-vim/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+call minpac#add('StanAngeloff/php.vim')
+call minpac#add('php-vim/phpcd.vim')
 function! PhpSyntaxOverride()
     hi! def link phpDocTags  phpDefine
     hi! def link phpDocParam phpType
@@ -66,7 +74,7 @@ augroup phpSyntaxOverride
 augroup END
 
 " === go-vim
-Plug 'fatih/vim-go', { 'for': 'go' }
+call minpac#add('fatih/vim-go')
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
@@ -75,17 +83,14 @@ let g:go_highlight_types = 1
 let g:go_highlight_build_constraints = 1
 
 " === Javascript
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+call minpac#add('pangloss/vim-javascript')
+call minpac#add('leafgarland/typescript-vim')
 
 " === less
-Plug 'groenewege/vim-less' , { 'for': 'less' }
-
+call minpac#add('groenewege/vim-less')
 
 " === YML & RAML
-Plug 'stephpy/vim-yaml', { 'for': 'yml' }
-
-call plug#end()
+call minpac#add('stephpy/vim-yaml')
 
 " ================
 " === Mappings ===
