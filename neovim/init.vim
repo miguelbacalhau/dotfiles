@@ -90,6 +90,17 @@ let g:go_highlight_operators = 1
 let g:go_highlight_types = 1
 let g:go_highlight_build_constraints = 1
 
+" === language server client
+call minpac#add('prabirshrestha/async.vim')
+call minpac#add('prabirshrestha/vim-lsp')
+if executable('typescript-language-server')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'typescript-language-server',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+        \ 'whitelist': ['typescript'],
+        \ })
+endif
 " === Javascript
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('HerringtonDarkholme/yats.vim')
