@@ -1,7 +1,10 @@
+set nocompatible              " be iMproved, required
+filetype plugin indent on
+syntax on
+
 " ================
 " === Plugings ===
 " ================
-set nocompatible              " be iMproved, required
 
 packadd minpac
 packadd onedark.vim
@@ -117,7 +120,6 @@ map <leader>y mzgg=G`z
 " ===============
 " === Configs ===
 " ===============
-syntax on
 " === colorscheme
 colorscheme onedark
 let s:colors = onedark#GetColors()
