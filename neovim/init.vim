@@ -130,6 +130,8 @@ set statusline+=%2*\ %3p%%\ %l:\ %c\                " Rownumber/total (%)
 " ================
 " === indent file
 map <leader>y mzgg=G`z
+" === remove hightlight on ESC
+nnoremap <esc> :noh<return><esc>
 
 " ===============
 " === Configs ===
