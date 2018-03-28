@@ -92,7 +92,8 @@ let g:go_highlight_build_constraints = 1
 
 " === Javascript
 call minpac#add('pangloss/vim-javascript')
-call minpac#add('leafgarland/typescript-vim')
+call minpac#add('HerringtonDarkholme/yats.vim')
+call minpac#add('ianks/vim-tsx')
 call minpac#add('mxw/vim-jsx')
 
 " === less
