@@ -192,8 +192,6 @@ set hidden
 set dictionary=/usr/share/dict/words
 " == no show commands
 set noshowcmd
-" === use system clipboard
-set clipboard=unnamedplus
 " === windows equal size
 set equalalways
 " === update time
