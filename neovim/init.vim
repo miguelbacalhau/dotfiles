@@ -52,7 +52,8 @@ let g:startify_change_to_dir = 0
 " === fzf
 call minpac#add('junegunn/fzf', { 'do': './install --bin' })
 call minpac#add('junegunn/fzf.vim')
-nnoremap <leader>p :GFiles<CR>
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+nnoremap <leader>p :Files<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>f :BLines<CR>
 let g:fzf_layout = { 'down': '~15%' }
