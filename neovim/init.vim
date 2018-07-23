@@ -98,13 +98,20 @@ let g:go_highlight_build_constraints = 1
 " === language server client
 call minpac#add('prabirshrestha/async.vim')
 call minpac#add('prabirshrestha/vim-lsp')
-if executable('javascript-typescript-stdio')
-    au User lsp_setup call lsp#register_server({
-      \ 'name': 'javascript-typescript-stdio',
-      \ 'cmd': { server_info->[&shell, &shellcmdflag, 'javascript-typescript-stdio']},
-      \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
-      \ 'whitelist': ['typescript', 'typescript.tsx', 'javascript', 'javascript.jsx']
-      \ })
+autocmd FileType typescript set omnifunc=lsp#complete
+autocmd FileType typescript.tsx set omnifunc=lsp#complete
+autocmd FileType php set omnifunc=lsp#complete
+nnoremap <silent> <leader>d :LspDefinition<CR>
+nnoremap <silent> <leader>r :LspReferences<CR>
+nnoremap <silent> <F3> :LspHover<CR>
+nnoremap <silent> <F4> :LspRename<CR>
+if executable('typescript-language-server')
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'typescript-language-server',
+    \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+    \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+    \ 'whitelist': ['typescript', 'typescript.tsx'],
+    \ })
 endif
 " === Javascript
 call minpac#add('pangloss/vim-javascript')
