@@ -117,14 +117,18 @@ call minpac#add('stephpy/vim-yaml')
 " ================
 " == StatusLine ==
 " ================
+function! RmCrtlChar(string)
+    return substitute(a:string, '[[:cntrl:]]', 'V', '')
+endfunction
+
 set laststatus=2
 set statusline=
-set statusline+=%1*\ %-2.4{toupper(mode())}         " Current mode
-set statusline+=%0*\ %{fugitive#head()}             " Git Branch name
-set statusline+=%0*\ %<%t\ %3*\ %R\ %M\ %w\         " File+path
+set statusline+=%1*\ %-2.4{toupper(RmCrtlChar(mode()))}                 " Current mode
+set statusline+=%0*\ %{fugitive#head()}                                 " Git Branch name
+set statusline+=%0*\ %<%t\ %3*\ %R\ %M\ %w\                             " File+path
 set statusline+=%*
-set statusline+=%=                             " Space
-set statusline+=%2*\ %3p%%\ %l:\ %c\                " Rownumber/total (%)
+set statusline+=%=                                                      " Space
+set statusline+=%2*\ %3p%%\ %l:\ %c\                                    " Rownumber/total (%)
 
 " ===============
 " === Mappings ===
