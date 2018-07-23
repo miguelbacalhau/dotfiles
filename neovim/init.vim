@@ -67,7 +67,11 @@ let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
+\   'typescript': ['prettier', 'eslint'],
+\   'json': ['prettier'],
 \}
+nnoremap <leader>a :ALENextWrap<CR>
+nnoremap <leader>y :ALEFix<CR>
 
 " === PHP
 call minpac#add('StanAngeloff/php.vim')
@@ -133,8 +137,6 @@ set statusline+=%2*\ %3p%%\ %l:\ %c\                                    " Rownum
 " ===============
 " === Mappings ===
 " ================
-" === indent file
-map <leader>y mzgg=G`z
 " === remove hightlight on ESC
 nnoremap <esc> :noh<return><esc>
 
