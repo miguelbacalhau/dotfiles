@@ -166,7 +166,6 @@ set termguicolors
 " === completion
 set completeopt=longest,menuone
 " === I beam in insert mode
-set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 " === persistent undo
 set undofile
 set undodir=~/.config/nvim/undofiles
@@ -198,8 +197,8 @@ set noswapfile
 " === indentation
 set expandtab
 set smarttab
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 set ai
 " === do not wrap files when they don't fit the screen
 set nowrap
