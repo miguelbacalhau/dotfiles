@@ -100,29 +100,25 @@ let g:go_highlight_operators = 1
 let g:go_highlight_types = 1
 let g:go_highlight_build_constraints = 1
 
-" === language server client
-call minpac#add('prabirshrestha/async.vim')
-call minpac#add('prabirshrestha/vim-lsp')
-autocmd FileType typescript set omnifunc=lsp#complete
-autocmd FileType typescript.tsx set omnifunc=lsp#complete
-autocmd FileType php set omnifunc=lsp#complete
-nnoremap <silent> <leader>d :LspDefinition<CR>
-nnoremap <silent> <leader>r :LspReferences<CR>
-nnoremap <silent> <F3> :LspHover<CR>
-nnoremap <silent> <F4> :LspRename<CR>
-if executable('typescript-language-server')
-  au User lsp_setup call lsp#register_server({
-    \ 'name': 'typescript-language-server',
-    \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-    \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-    \ 'whitelist': ['typescript', 'typescript.tsx'],
-    \ })
-endif
 " === Javascript
 call minpac#add('pangloss/vim-javascript')
-call minpac#add('HerringtonDarkholme/yats.vim')
-call minpac#add('ianks/vim-tsx')
 call minpac#add('mxw/vim-jsx')
+
+" === typescript
+call minpac#add('HerringtonDarkholme/yats.vim')
+call minpac#add('prabirshrestha/asyncomplete.vim')
+call minpac#add('runoshun/tscompletejob')
+call minpac#add('prabirshrestha/asyncomplete-tscompletejob.vim')
+au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#tscompletejob#get_source_options({
+    \ 'name': 'tscompletejob',
+    \ 'whitelist': ['typescript'],
+    \ 'completor': function('asyncomplete#sources#tscompletejob#completor'),
+    \ }))
+let g:tscompletejob_mappings_disable_default = 0
+map <silent> <leader>d <Plug>(TsCompleteJobGotoDefinition)
+map <silent> <leader>r <Plug>(TsCompleteJobReferences)
+map <silent> <leader>i <Plug>(TsCompleteJobCodeFix)
+map <silent> <leader>e <Plug>(TsCompleteJobRename)
 
 " === less
 call minpac#add('groenewege/vim-less')
