@@ -52,12 +52,13 @@ let g:startify_change_to_dir = 0
 " === fzf
 call minpac#add('junegunn/fzf', { 'do': './install --bin' })
 call minpac#add('junegunn/fzf.vim')
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 nnoremap <leader>p :Files<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>f :BLines<CR>
+nnoremap <leader>c :Commands<CR>
 let g:fzf_layout = { 'down': '~15%' }
-inoremap <expr> <c-x><c-k> fzf#vim#complete#word()
+imap <c-x><c-k> <plug>(fzf-complete-word)
 
 " === Ale linter
 call minpac#add('w0rp/ale')
