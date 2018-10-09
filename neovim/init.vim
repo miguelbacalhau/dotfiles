@@ -66,13 +66,17 @@ let g:ale_sign_column_always = 1
 let g:ale_php_phpcs_standard = 'PSR2'
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
+let g:ale_linter_aliases = {
+\   'typescriptreact': 'typescript',
+\}
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
-\   'typescript': ['prettier', 'eslint'],
+\   'typescript': [ 'prettier', 'eslint'],
+\   'typescriptreact': [ 'eslint'],
 \   'json': ['prettier'],
 \}
-nnoremap <leader>a :ALENextWrap<CR>
-nnoremap <leader>y :ALEFix<CR>
+nmap <leader>a <Plug>(ale_next_wrap)
+nmap <leader>y <Plug>(ale_fix)
 
 " === PHP
 call minpac#add('StanAngeloff/php.vim')
