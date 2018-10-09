@@ -148,8 +148,8 @@ set statusline+=%2*\ %3p%%\ %l:\ %c\                                    " Rownum
 " ===============
 " === Mappings ===
 " ================
-" === remove hightlight on ESC
-nnoremap <esc> :noh<return><esc>
+" === remove hightlight and close lists on ESC
+noremap <esc> :noh<bar>:ccl<bar>:lcl<return><esc>
 
 " ===============
 " === Configs ===
