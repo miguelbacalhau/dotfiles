@@ -126,6 +126,9 @@ call minpac#add('groenewege/vim-less')
 " === YML & RAML
 call minpac#add('stephpy/vim-yaml')
 
+" === editorconfig formatting
+call minpac#add('sgur/vim-editorconfig')
+
 " ================
 " == StatusLine ==
 " ================
