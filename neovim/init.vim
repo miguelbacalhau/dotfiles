@@ -56,31 +56,21 @@ let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 nnoremap <leader>p :Files<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>f :BLines<CR>
-nnoremap <leader>c :Commands<CR>
 let g:fzf_layout = { 'down': '~15%' }
 imap <c-x><c-k> <plug>(fzf-complete-word)
 
 " === Ale linter
 call minpac#add('w0rp/ale')
 let g:ale_sign_column_always = 1
-let g:ale_php_phpcs_standard = 'PSR2'
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 let g:ale_linter_aliases = {
 \   'typescriptreact': 'typescript',
 \}
-let g:ale_fixers = {
-\   'javascript': ['prettier', 'eslint'],
-\   'typescript': [ 'prettier', 'eslint'],
-\   'typescriptreact': [ 'eslint'],
-\   'json': ['prettier'],
-\}
 nmap <leader>a <Plug>(ale_next_wrap)
-nmap <leader>y <Plug>(ale_fix)
 
 " === PHP
 call minpac#add('StanAngeloff/php.vim')
-call minpac#add('php-vim/phpcd.vim')
 function! PhpSyntaxOverride()
     hi! def link phpDocTags  phpDefine
     hi! def link phpDocParam phpType
