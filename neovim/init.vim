@@ -61,7 +61,6 @@ imap <c-x><c-k> <plug>(fzf-complete-word)
 
 " === Ale linter
 call minpac#add('w0rp/ale')
-let g:ale_sign_column_always = 1
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 let g:ale_linter_aliases = {
@@ -202,3 +201,5 @@ set noshowcmd
 set equalalways
 " === update time
 set updatetime=100
+" === sign column always on
+set signcolumn=yes
