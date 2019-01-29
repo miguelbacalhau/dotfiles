@@ -99,19 +99,17 @@ call minpac#add('mxw/vim-jsx')
 
 " === typescript
 call minpac#add('HerringtonDarkholme/yats.vim')
-call minpac#add('prabirshrestha/asyncomplete.vim')
-call minpac#add('runoshun/tscompletejob')
-call minpac#add('prabirshrestha/asyncomplete-tscompletejob.vim')
-au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#tscompletejob#get_source_options({
-    \ 'name': 'tscompletejob',
-    \ 'whitelist': ['typescript'],
-    \ 'completor': function('asyncomplete#sources#tscompletejob#completor'),
-    \ }))
-let g:tscompletejob_mappings_disable_default = 0
-map <silent> <leader>d <Plug>(TsCompleteJobGotoDefinition)
-map <silent> <leader>r <Plug>(TsCompleteJobReferences)
-map <silent> <leader>i <Plug>(TsCompleteJobCodeFix)
-map <silent> <leader>e <Plug>(TsCompleteJobRename)
+
+" === language server
+call minpac#add('prabirshrestha/async.vim')
+call minpac#add('prabirshrestha/vim-lsp')
+call minpac#add('ryanolsonx/vim-lsp-typescript')
+nmap <leader>d  :LspDefinition <cr>
+nmap <leader>r  :LspReferences <cr>
+nmap <leader>i  :LspCodeAction <cr>
+nmap <leader>h  :LspHover <cr>
+nmap <leader>cr :LspRename <cr>
+nmap <leader>cf :LspDocumentFormat <cr>
 
 " === less
 call minpac#add('groenewege/vim-less')
