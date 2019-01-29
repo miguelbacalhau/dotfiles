@@ -68,6 +68,10 @@ let g:ale_linter_aliases = {
 \}
 nmap <leader>a <Plug>(ale_next_wrap)
 
+" === Prettier formatiing
+call minpac#add('prettier/vim-prettier')
+nmap <leader>y <Plug>(Prettier)
+
 " === PHP
 call minpac#add('StanAngeloff/php.vim')
 function! PhpSyntaxOverride()
