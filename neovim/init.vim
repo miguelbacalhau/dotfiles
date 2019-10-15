@@ -114,6 +114,9 @@ nmap <leader>cf :LspDocumentFormat <cr>
 " === less
 call minpac#add('groenewege/vim-less')
 
+" === styled components
+call minpac#add('styled-components/vim-styled-components')
+
 " === YML & RAML
 call minpac#add('stephpy/vim-yaml')
 
