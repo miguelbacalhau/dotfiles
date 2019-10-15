@@ -59,18 +59,6 @@ nnoremap <leader>f :BLines<CR>
 let g:fzf_layout = { 'down': '~15%' }
 imap <c-x><c-k> <plug>(fzf-complete-word)
 
-" === Ale linter
-call minpac#add('w0rp/ale')
-let g:ale_lint_on_text_changed = 'normal'
-let g:ale_lint_on_insert_leave = 1
-let g:ale_linter_aliases = {
-\   'typescriptreact': 'typescript',
-\}
-nmap <leader>a <Plug>(ale_next_wrap)
-
-" === Prettier formatiing
-call minpac#add('prettier/vim-prettier')
-nmap <leader>y <Plug>(Prettier)
 
 " === PHP
 call minpac#add('StanAngeloff/php.vim')
@@ -100,16 +88,18 @@ call minpac#add('mxw/vim-jsx')
 " === typescript
 call minpac#add('HerringtonDarkholme/yats.vim')
 
-" === language server
-call minpac#add('prabirshrestha/async.vim')
-call minpac#add('prabirshrestha/vim-lsp')
-call minpac#add('ryanolsonx/vim-lsp-typescript')
-nmap <leader>d  :LspDefinition <cr>
-nmap <leader>r  :LspReferences <cr>
-nmap <leader>i  :LspCodeAction <cr>
-nmap <leader>h  :LspHover <cr>
-nmap <leader>cr :LspRename <cr>
-nmap <leader>cf :LspDocumentFormat <cr>
+" === coc intellisense
+call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
+inoremap <silent><expr> <c-x><c-o> coc#refresh()
+nmap <leader>d  <Plug>(coc-definition)
+nmap <leader>r  <Plug>(coc-references)
+nmap <leader>y  <Plug>(coc-format)
+nmap <leader>a  <Plug>(coc-diagnostic-next)
+nmap <leader>i  <Plug>(coc-codeaction)
+vmap <leader>i  <Plug>(coc-codeaction-selected)
+nmap <leader>cr <Plug>(coc-rename)
+nmap <leader>ca <Plug>(coc-refactor)
+command! -nargs=0 OrganizeImport :call CocAction('runCommand', 'editor.action.organizeImport')
 
 " === less
 call minpac#add('groenewege/vim-less')
@@ -154,6 +144,10 @@ let s:colors = onedark#GetColors()
 call onedark#set_highlight("User1", { "bg": s:colors.green, "fg": s:colors.black, "gui": "bold" })
 call onedark#set_highlight("User2", { "bg": s:colors.green, "fg": s:colors.black })
 call onedark#set_highlight("User3", { "bg": s:colors.cursor_grey, "fg": s:colors.red })
+call onedark#set_highlight("CocErrorSign", { "fg": s:colors.red })
+call onedark#set_highlight("CocWarningSign", { "fg": s:colors.yellow })
+call onedark#set_highlight("CocWarningSign", { "fg": s:colors.blue })
+call onedark#set_highlight("CocFloating", { "bg": s:colors.menu_grey })
 
 " === true colors support
 set termguicolors
