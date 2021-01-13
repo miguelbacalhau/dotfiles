@@ -113,6 +113,12 @@ nmap <leader>h  :call CocAction('doHover')<cr>
 command! -nargs=0 OrganizeImport :call CocAction('runCommand', 'editor.action.organizeImport')
 command! -nargs=? Fold :call CocAction('fold', 'region')
 
+augroup formatonSave
+  autocmd!
+  autocmd FileType typescript,typescriptreact,json
+    \ autocmd BufWritePre <buffer> silent call CocAction('format')
+augroup END
+
 " === less
 call minpac#add('groenewege/vim-less')
 
