@@ -48,15 +48,18 @@ let g:startify_files_number = 5
 let g:startify_change_to_dir = 0
 
 " === fzf
-call minpac#add('junegunn/fzf', { 'do': './install --bin' })
+call minpac#add('junegunn/fzf', { 'do': { -> fzf#install() } })
 call minpac#add('junegunn/fzf.vim')
-let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+let $FZF_DEFAULT_COMMAND = 'rg --hidden --files -g "!.git"'
+let g:fzf_layout = { 'down': '~30%' }
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --ignore-case -g "!package-lock.json" -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
 nnoremap <leader>p :Files<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>f :BLines<CR>
-let g:fzf_layout = { 'down': '~15%' }
 imap <c-x><c-k> <plug>(fzf-complete-word)
-
 
 " === PHP
 call minpac#add('StanAngeloff/php.vim')
