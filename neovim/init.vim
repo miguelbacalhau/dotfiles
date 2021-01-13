@@ -96,11 +96,14 @@ nmap <leader>d  <Plug>(coc-definition)
 nmap <leader>r  <Plug>(coc-references)
 nmap <leader>y  <Plug>(coc-format)
 nmap <leader>a  <Plug>(coc-diagnostic-next)
-nmap <leader>i  <Plug>(coc-codeaction)
-vmap <leader>i  <Plug>(coc-codeaction-selected)
-nmap <leader>cr <Plug>(coc-rename)
-nmap <leader>ca <Plug>(coc-refactor)
+nmap <leader>i  <Plug>(coc-fix-current)
+nmap <leader>cr <Plug>(coc-refactor)
+nmap <leader>ca <Plug>(coc-codeaction)
+vmap <leader>ca <Plug>(coc-codeaction-selected)
+nmap <leader>e  :<C-u>CocList diagnostics<cr>
+nmap <leader>h  :call CocAction('doHover')<cr>
 command! -nargs=0 OrganizeImport :call CocAction('runCommand', 'editor.action.organizeImport')
+command! -nargs=? Fold :call CocAction('fold', 'region')
 
 " === less
 call minpac#add('groenewege/vim-less')
