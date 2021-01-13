@@ -91,6 +91,14 @@ call minpac#add('HerringtonDarkholme/yats.vim')
 
 " === coc intellisense
 call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
+let g:coc_global_extensions = [
+      \'coc-tsserver',
+      \'coc-css',
+      \'coc-eslint',
+      \'coc-json',
+      \'coc-prettier',
+      \'coc-yaml'
+      \]
 inoremap <silent><expr> <c-x><c-o> coc#refresh()
 nmap <leader>d  <Plug>(coc-definition)
 nmap <leader>r  <Plug>(coc-references)
