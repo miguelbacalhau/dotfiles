@@ -5,9 +5,7 @@ syntax on
 " ================
 " === Plugings ===
 " ================
-
 packadd minpac
-packadd onedark.vim
 
 call minpac#init()
 call minpac#add('k-takata/minpac', {'type': 'opt'})
@@ -16,7 +14,7 @@ call minpac#add('k-takata/minpac', {'type': 'opt'})
 let mapleader=" "
 
 " === Colorscheme
-call minpac#add('joshdick/onedark.vim', {'type': 'opt'})
+call minpac#add('rakr/vim-one', {'type': 'opt'})
 
 " === git
 call minpac#add('tpope/vim-fugitive')
@@ -139,15 +137,10 @@ noremap <esc> :noh<bar>:ccl<bar>:lcl<return><esc>
 " === Configs ===
 " ===============
 " === colorscheme
-colorscheme onedark
-let s:colors = onedark#GetColors()
-call onedark#set_highlight("User1", { "bg": s:colors.green, "fg": s:colors.black, "gui": "bold" })
-call onedark#set_highlight("User2", { "bg": s:colors.green, "fg": s:colors.black })
-call onedark#set_highlight("User3", { "bg": s:colors.cursor_grey, "fg": s:colors.red })
-call onedark#set_highlight("CocErrorSign", { "fg": s:colors.red })
-call onedark#set_highlight("CocWarningSign", { "fg": s:colors.yellow })
-call onedark#set_highlight("CocWarningSign", { "fg": s:colors.blue })
-call onedark#set_highlight("CocFloating", { "bg": s:colors.menu_grey })
+colorscheme one
+set background=dark
+ hi default link CocErrorSign ALEErrorSign
+ hi default link CocWarningSign ALEWarningSign
 
 " === true colors support
 set termguicolors
