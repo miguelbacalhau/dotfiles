@@ -178,6 +178,8 @@ set background=dark
 
 " === true colors support
 set termguicolors
+" === don't show mode in last line
+set noshowmode
 " === completion
 set completeopt=longest,menuone
 " === I beam in insert mode
