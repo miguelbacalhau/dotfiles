@@ -161,7 +161,9 @@ set laststatus=2
 " === Mappings ===
 " ================
 " === remove hightlight and close lists on ESC
-noremap <esc> :noh<bar>:ccl<bar>:lcl<return><esc>
+noremap <silent> <esc> :noh<bar>:ccl<bar>:lcl<return><esc>
+" === save on ctrl + s
+noremap <silent> <C-S> :w<CR>
 
 " ===============
 " === Configs ===
