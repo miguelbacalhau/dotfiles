@@ -16,6 +16,19 @@ let mapleader=" "
 " === Colorscheme
 call minpac#add('rakr/vim-one', {'type': 'opt'})
 
+" === statusline
+call minpac#add('itchyny/lightline.vim')
+let g:lightline = {
+      \ 'colorscheme': 'one',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
+
 " === git
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('airblade/vim-gitgutter')
@@ -131,18 +144,18 @@ call minpac#add('sgur/vim-editorconfig')
 " ================
 " == StatusLine ==
 " ================
-function! RmCrtlChar(string)
-    return substitute(a:string, '[[:cntrl:]]', 'V', '')
-endfunction
+" function! RmCrtlChar(string)
+"     return substitute(a:string, '[[:cntrl:]]', 'V', '')
+" endfunction
 
 set laststatus=2
-set statusline=
-set statusline+=%1*\ %-2.4{toupper(RmCrtlChar(mode()))}                 " Current mode
-set statusline+=%0*\ %{fugitive#head()}                                 " Git Branch name
-set statusline+=%0*\ %<%t\ %3*\ %R\ %M\ %w\                             " File+path
-set statusline+=%*
-set statusline+=%=                                                      " Space
-set statusline+=%2*\ %3p%%\ %l:\ %c\                                    " Rownumber/total (%)
+" set statusline=
+" set statusline+=%1*\ %-2.4{toupper(RmCrtlChar(mode()))}                 " Current mode
+" set statusline+=%2*\ %{fugitive#head()}\                                " Git Branch name
+" set statusline+=%0*\ %<%t\ %R\ %M\ %w\                                  " File+path
+" set statusline+=%*
+" set statusline+=%=                                                      " Space
+" set statusline+=%0*\ %3p%%\ %l:\ %c\                                    " Rownumber/total (%)
 
 " ===============
 " === Mappings ===
@@ -158,6 +171,10 @@ colorscheme one
 set background=dark
  hi default link CocErrorSign ALEErrorSign
  hi default link CocWarningSign ALEWarningSign
+
+" hi default link User1 TabLineSel
+" hi default link User2 StatusLineNC
+" hi default link User3 WarningMsg
 
 " === true colors support
 set termguicolors
