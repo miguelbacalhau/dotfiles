@@ -2,6 +2,9 @@ set nocompatible              " be iMproved, required
 filetype plugin indent on
 syntax on
 
+" === leader
+let mapleader=" "
+
 " ================
 " === Plugings ===
 " ================
@@ -10,14 +13,14 @@ packadd minpac
 call minpac#init()
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-" === leader
-let mapleader=" "
+" === dependencies
+call minpac#add('nvim-lua/plenary.nvim')
 
 " === colorscheme
 call minpac#add('navarasu/onedark.nvim')
 
 " === statusline
-call minpac#add('hoob3rt/lualine.nvim')
+call minpac#add('nvim-lualine/lualine.nvim')
 lua <<EOF
   require'lualine'.setup {
     options = {
@@ -162,7 +165,6 @@ let g:copilot_enabled = v:false
 imap <C-e> <Plug>(copilot-suggest)
 imap <C-d> <Plug>(copilot-next)
 
-call minpac#add('nvim-lua/plenary.nvim')
 call minpac#add('olimorris/codecompanion.nvim')
 lua << EOF
   require("codecompanion").setup({
