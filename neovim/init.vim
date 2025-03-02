@@ -58,10 +58,9 @@ let g:NERDTreeQuitOnOpen = 1
 let NERDTreeStatusline='TREE'
 set laststatus=2
 
-" === sneak motion
-call minpac#add('justinmk/vim-sneak')
-let g:sneak#label = 1
-hi! link Sneak Search
+" === leap motion
+call minpac#add('ggandor/leap.nvim')
+lua require('leap').create_default_mappings()
 
 " === startify
 call minpac#add('mhinz/vim-startify')
