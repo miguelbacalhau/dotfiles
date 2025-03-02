@@ -154,7 +154,30 @@ command! -nargs=? Fold :call CocAction('fold', 'region')
 
 autocmd BufNewFile,BufRead *.mdx :set filetype=tsx
 
+" === copilot
+call minpac#add("github/copilot.vim")
+let g:copilot_node_command = "~/.nvm/versions/node/v18.16.0/bin/node"
+let g:copilot_enabled = v:false
 
+imap <C-e> <Plug>(copilot-suggest)
+imap <C-d> <Plug>(copilot-next)
+
+call minpac#add('nvim-lua/plenary.nvim')
+call minpac#add('olimorris/codecompanion.nvim')
+lua << EOF
+  require("codecompanion").setup({
+  strategies = {
+    chat = {
+      adapter = "copilot",
+    },
+    agent = {
+      adapter = 'copilot',
+    },
+  },
+})
+EOF
+
+noremap <silent> <leader>cc <cmd>CodeCompanionChat Toggle<cr>
 
 " === editorconfig formatting
 call minpac#add('sgur/vim-editorconfig')
