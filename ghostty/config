@@ -1,0 +1,9 @@
+theme = OneHalfDark
+font-size = 12
+
+keybind = ctrl+space>c=new_tab
+keybind = ctrl+space>n=next_tab
+keybind = ctrl+space>p=previous_tab
+
+gtk-tabs-location = bottom
+macos-titlebar-style = tabs
