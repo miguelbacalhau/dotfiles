@@ -130,11 +130,16 @@ let g:coc_global_extensions = [
       \'coc-css',
       \'coc-eslint',
       \'coc-json',
-      \'coc-prettier',
-      \'coc-yaml'
+      \'coc-prettier-dev',
+      \'coc-yaml',
+      \'coc-rust-analyzer',
+      \'coc-solidity',
       \]
 inoremap <silent><expr> <c-x><c-o> coc#refresh()
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
 nmap <leader>d  <Plug>(coc-definition)
+nmap <leader>t  <Plug>(coc-type-definition)
 nmap <leader>r  <Plug>(coc-references)
 nmap <leader>y  <Plug>(coc-format)
 nmap <leader>a  <Plug>(coc-diagnostic-next)
@@ -147,11 +152,7 @@ nmap <leader>h  :call CocAction('doHover')<cr>
 command! -nargs=0 OrganizeImport :call CocAction('runCommand', 'editor.action.organizeImport')
 command! -nargs=? Fold :call CocAction('fold', 'region')
 
-augroup formatonSave
-  autocmd!
-  autocmd FileType typescript,typescriptreact,json
-    \ autocmd BufWritePre <buffer> silent call CocAction('format')
-augroup END
+autocmd BufNewFile,BufRead *.mdx :set filetype=tsx
 
 
 
