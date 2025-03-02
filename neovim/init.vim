@@ -72,17 +72,24 @@ let g:startify_change_to_dir = 0
 
 " === fzf
 call minpac#add('junegunn/fzf', { 'do': { -> fzf#install() } })
-call minpac#add('junegunn/fzf.vim')
-let $FZF_DEFAULT_COMMAND = 'rg --hidden --files -g "!.git"'
-let g:fzf_layout = { 'down': '~30%' }
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --ignore-case -g "!package-lock.json" -- '.shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview(), <bang>0)
-nnoremap <leader>p :Files<CR>
-nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>f :BLines<CR>
-imap <c-x><c-k> <plug>(fzf-complete-word)
+call minpac#add('ibhagwan/fzf-lua', {'branch': 'main'})
+lua <<EOF
+  require'fzf-lua'.setup {
+    fzf_opts   = { ["--layout"] = "default", ["--marker"] = "+" },
+    winopts = {
+      height = 0.30,         -- window height
+      width  = 1,            -- window width
+      row    = 1,            -- window row position (0=top, 1=bottom)
+      col    = 0,            -- window col position (0=left, 1=right)
+    }
+  }
+EOF
+nnoremap <leader>p <cmd>lua require('fzf-lua').files()<CR>
+nnoremap <leader>b <cmd>lua require('fzf-lua').buffers()<CR>
+nnoremap <leader>f <cmd>lua require('fzf-lua').blines()<CR>
+nnoremap <leader>g <cmd>lua require('fzf-lua').grep()<CR>
+nnoremap <leader>w <cmd>lua require('fzf-lua').grep_cWORD()<CR>
+nnoremap <leader>k <cmd>lua require('fzf-lua').spell_suggest()<CR>
 
 
 " === go-vim
