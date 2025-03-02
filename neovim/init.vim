@@ -13,8 +13,8 @@ call minpac#add('k-takata/minpac', {'type': 'opt'})
 " === leader
 let mapleader=" "
 
-" === Colorscheme
-call minpac#add('rakr/vim-one', {'type': 'opt'})
+" === colorscheme
+call minpac#add('navarasu/onedark.nvim')
 
 " === statusline
 call minpac#add('itchyny/lightline.vim')
@@ -169,14 +169,10 @@ noremap <silent> <C-S> :w<CR>
 " === Configs ===
 " ===============
 " === colorscheme
-colorscheme one
+colorscheme onedark
 set background=dark
- hi default link CocErrorSign ALEErrorSign
- hi default link CocWarningSign ALEWarningSign
-
-" hi default link User1 TabLineSel
-" hi default link User2 StatusLineNC
-" hi default link User3 WarningMsg
+hi default link CocErrorSign
+hi default link CocWarningSign
 
 " === true colors support
 set termguicolors
