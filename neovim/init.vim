@@ -91,6 +91,28 @@ nnoremap <leader>g <cmd>lua require('fzf-lua').grep()<CR>
 nnoremap <leader>w <cmd>lua require('fzf-lua').grep_cWORD()<CR>
 nnoremap <leader>k <cmd>lua require('fzf-lua').spell_suggest()<CR>
 
+" === treesitter
+call minpac#add('nvim-treesitter/nvim-treesitter')
+lua <<EOF
+  require'nvim-treesitter.configs'.setup {
+    ensure_installed = {
+      "css",
+      "diff",
+      "graphql",
+      "javascript",
+      "lua",
+      "markdown",
+      "php",
+      "rust",
+      "tsx",
+      "typescript",
+      "solidity"
+    },
+    highlight = {
+    enable = true,
+    },
+  }
+EOF
 
 " === go-vim
 call minpac#add('fatih/vim-go')
