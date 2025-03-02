@@ -17,17 +17,28 @@ let mapleader=" "
 call minpac#add('navarasu/onedark.nvim')
 
 " === statusline
-call minpac#add('itchyny/lightline.vim')
-let g:lightline = {
-      \ 'colorscheme': 'one',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ }
+call minpac#add('hoob3rt/lualine.nvim')
+lua <<EOF
+  require'lualine'.setup {
+    options = {
+      icons_enabled = false,
+      theme = 'onedark',
+      component_separators = {'', ''},
+      section_separators = {'', ''},
+    },
+    sections = {
+      lualine_a = {'mode'},
+      lualine_b = {'branch'},
+      lualine_c = {'filename'},
+      lualine_x = {'filetype'},
+      lualine_z = {'location'}
+    },
+    inactive_sections = {
+      lualine_c = {'filename'},
+      lualine_x = {'location'},
+    },
+  }
+EOF
 
 " === git
 call minpac#add('tpope/vim-fugitive')
@@ -142,22 +153,6 @@ call minpac#add('styled-components/vim-styled-components')
 call minpac#add('sgur/vim-editorconfig')
 
 " ================
-" == StatusLine ==
-" ================
-" function! RmCrtlChar(string)
-"     return substitute(a:string, '[[:cntrl:]]', 'V', '')
-" endfunction
-
-set laststatus=2
-" set statusline=
-" set statusline+=%1*\ %-2.4{toupper(RmCrtlChar(mode()))}                 " Current mode
-" set statusline+=%2*\ %{fugitive#head()}\                                " Git Branch name
-" set statusline+=%0*\ %<%t\ %R\ %M\ %w\                                  " File+path
-" set statusline+=%*
-" set statusline+=%=                                                      " Space
-" set statusline+=%0*\ %3p%%\ %l:\ %c\                                    " Rownumber/total (%)
-
-" ===============
 " === Mappings ===
 " ================
 " === remove hightlight and close lists on ESC
