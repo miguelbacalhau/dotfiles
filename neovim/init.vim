@@ -196,8 +196,8 @@ noremap <silent> <C-S> :w<CR>
 " === colorscheme
 colorscheme onedark
 set background=dark
-hi default link CocErrorSign
-hi default link CocWarningSign
+hi default link CocErrorSign ALEErrorSign
+hi default link CocWarningSign ALEWarningSign
 
 " === true colors support
 set termguicolors
