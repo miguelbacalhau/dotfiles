@@ -84,17 +84,6 @@ nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>f :BLines<CR>
 imap <c-x><c-k> <plug>(fzf-complete-word)
 
-" === PHP
-call minpac#add('StanAngeloff/php.vim')
-function! PhpSyntaxOverride()
-    hi! def link phpDocTags  phpDefine
-    hi! def link phpDocParam phpType
-endfunction
-
-augroup phpSyntaxOverride
-    autocmd!
-    autocmd FileType php call PhpSyntaxOverride()
-augroup END
 
 " === go-vim
 call minpac#add('fatih/vim-go')
@@ -104,13 +93,6 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_types = 1
 let g:go_highlight_build_constraints = 1
-
-" === Javascript
-call minpac#add('pangloss/vim-javascript')
-call minpac#add('mxw/vim-jsx')
-
-" === typescript
-call minpac#add('HerringtonDarkholme/yats.vim')
 
 " === coc intellisense
 call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
@@ -142,11 +124,7 @@ augroup formatonSave
     \ autocmd BufWritePre <buffer> silent call CocAction('format')
 augroup END
 
-" === less
-call minpac#add('groenewege/vim-less')
 
-" === styled components
-call minpac#add('styled-components/vim-styled-components')
 
 " === editorconfig formatting
 call minpac#add('sgur/vim-editorconfig')
