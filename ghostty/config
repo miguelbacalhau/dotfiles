@@ -1,5 +1,8 @@
 theme = OneHalfDark
+
+font-family = Monaspace Neon Var
 font-size = 12
+font-feature = -calt, -liga, -dlig
 
 keybind = ctrl+space>c=new_tab
 keybind = ctrl+space>n=next_tab
