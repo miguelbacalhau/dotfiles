@@ -1,0 +1,17 @@
+{
+  "suggest.autoTrigger": "none",
+  "signature.enable": false,
+  "eslint.format.enable": true,
+  "eslint.experimental.useFlatConfig": true,
+  "typescript.autoClosingTags": false,
+  "prettier.onlyUseLocalVersion": true,
+  "prettier.requireConfig": true,
+   "prettier.documentSelectors": ["**/*.sol"],
+   "prettier.formatterPriority": 100,
+  "coc.preferences.formatOnSave":  true,
+  "workspace.ignoredFolders": [
+  "$HOME",
+  "$HOME/.cargo/**",
+  "$HOME/.rustup/**"
+]
+}
