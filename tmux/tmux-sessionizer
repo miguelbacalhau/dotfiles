@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+sanity_check() {
+    if ! command -v tmux &>/dev/null; then
+        echo "tmux is not installed. Please install it first."
+        exit 1
+    fi
+
+    if ! command -v fzf &>/dev/null; then
+        echo "fzf is not installed. Please install it first."
+        exit 1
+    fi
+}
+
+switch_to() {
+    if [[ -z $TMUX ]]; then
+        tmux attach-session -t "$1"
+    else
+        tmux switch-client -t "$1"
+    fi
+}
+
+has_session() {
+    tmux list-sessions | grep -q "^$1:"
+}
+
+sanity_check
+
+[[ -n "$TS_SEARCH_PATHS" ]] || TS_SEARCH_PATHS=(~/git)
+
+find_dirs() {
+    current_session=$(tmux display-message -p '#S')
+
+    find $TS_SEARCH_PATHS -maxdepth 1 -type d -path "${TS_SEARCH_PATHS}/${current_session}" -prune -o -print
+}
+
+if [[ $# -eq 1 ]]; then
+    selected="$1"
+else
+    selected=$(find_dirs | fzf)
+fi
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+selected_name=$(basename "$selected" | tr . _)
+tmux_running=$(pgrep tmux)
+
+if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+    tmux new-session -ds "$selected_name" -c "$selected"
+fi
+
+if ! has_session "$selected_name"; then
+    tmux new-session -ds "$selected_name" -c "$selected"
+fi
+
+switch_to "$selected_name"
