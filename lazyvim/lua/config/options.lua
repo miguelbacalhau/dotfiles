@@ -9,9 +9,9 @@ vim.o.mouse = "a"
 vim.o.showmode = false
 
 -- Sync clipboard between OS and Neovim.
-vim.schedule(function()
-	vim.o.clipboard = "unnamedplus"
-end)
+-- vim.schedule(function()
+-- 	vim.o.clipboard = "unnamedplus"
+-- end)
 
 -- identation
 vim.o.breakindent = true
@@ -23,6 +23,7 @@ vim.o.ai = true
 
 -- Save undo history
 vim.o.undofile = true
+vim.o.swapfile = false
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.o.ignorecase = true
@@ -43,3 +44,9 @@ vim.o.splitbelow = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.o.scrolloff = 10
+
+-- Floating window border
+vim.o.winborder = "bold"
+
+-- Complition menu options
+vim.o.completeopt = "menu,menuone,popup,fuzzy,noselect"

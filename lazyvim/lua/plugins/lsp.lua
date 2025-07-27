@@ -15,7 +15,7 @@ return {
 			{ "j-hui/fidget.nvim", opts = {} },
 
 			-- Allows extra capabilities provided by blink.cmp
-			"saghen/blink.cmp",
+			-- "saghen/blink.cmp",
 		},
 		config = function()
 			--  This function gets run when an LSP attaches to a particular buffer.
@@ -44,16 +44,16 @@ return {
 					map("<leader>ca", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
 
 					-- Find references for the word under your cursor.
-					map("<leader>r", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+					map("<leader>r", require("fzf-lua").lsp_references, "[G]oto [R]eferences")
 
 					-- Jump to the implementation of the word under your cursor.
 					--  Useful when your language has ways of declaring types without an actual implementation.
-					map("<leader>i", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+					map("<leader>i", require("fzf-lua").lsp_implementations, "[G]oto [I]mplementation")
 
 					-- Jump to the definition of the word under your cursor.
 					--  This is where a variable was first declared, or where a function is defined, etc.
 					--  To jump back, press <C-t>.
-					map("<leader>d", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+					map("<leader>d", require("fzf-lua").lsp_definitions, "[G]oto [D]efinition")
 
 					-- WARN: This is not Goto Definition, this is Goto Declaration.
 					--  For example, in C this would take you to the header.
@@ -61,26 +61,22 @@ return {
 
 					-- Fuzzy find all the symbols in your current document.
 					--  Symbols are things like variables, functions, types, etc.
-					map("<leader>o", require("telescope.builtin").lsp_document_symbols, "Open Document Symbols")
+					map("<leader>o", require("fzf-lua").lsp_document_symbols, "Open Document Symbols")
 
 					-- Fuzzy find all the symbols in your current workspace.
 					--  Similar to document symbols, except searches over your entire project.
-					map(
-						"<leader>cw",
-						require("telescope.builtin").lsp_dynamic_workspace_symbols,
-						"Open Workspace Symbols"
-					)
+					map("<leader>cw", require("fzf-lua").lsp_live_workspace_symbols, "Open Workspace Symbols")
 
 					-- Jump to the type of the word under your cursor.
 					--  Useful when you're not sure what type a variable is and you want to see
 					--  the definition of its *type*, not where it was *defined*.
-					map("<leader>t", require("telescope.builtin").lsp_type_definitions, "Go to [T]ype Definition")
+					map("<leader>t", require("fzf-lua").lsp_typedefs, "Go to [T]ype Definition")
 
 					--- Show hover info
 					map("<leader>h", vim.lsp.buf.hover, "Show [H]over")
 
 					--- Diagnostics
-					map("<leader>e", require("telescope.builtin").diagnostics, "[S]earch [D]iagnostics")
+					map("<leader>e", require("fzf-lua").lsp_workspace_diagnostics, "[S]earch [D]iagnostics")
 					--- Jump to next/previous error diagnostic
 					map("<leader>n", vim.diagnostic.goto_next, "[Next] Diagnostic")
 					map("<leader>N", vim.diagnostic.goto_prev, "Previous Diagnostic")
@@ -113,7 +109,7 @@ return {
 			--  By default, Neovim doesn't support everything that is in the LSP specification.
 			--  When you add blink.cmp, luasnip, etc. Neovim now has *more* capabilities.
 			--  So, we create new capabilities with blink.cmp, and then broadcast that to the servers.
-			local capabilities = require("blink.cmp").get_lsp_capabilities()
+			-- local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 			-- Enable the following language servers
 			--  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -216,92 +212,92 @@ return {
 			},
 		},
 	},
-
-	{ -- Autocompletion
-		"saghen/blink.cmp",
-		event = "VimEnter",
-		version = "1.*",
-		dependencies = {
-			-- Snippet Engine
-			{
-				"L3MON4D3/LuaSnip",
-				version = "2.*",
-				build = (function()
-					-- Build Step is needed for regex support in snippets.
-					-- This step is not supported in many windows environments.
-					-- Remove the below condition to re-enable on windows.
-					if vim.fn.has("win32") == 1 or vim.fn.executable("make") == 0 then
-						return
-					end
-					return "make install_jsregexp"
-				end)(),
-				dependencies = {
-					-- `friendly-snippets` contains a variety of premade snippets.
-					--    See the README about individual language/framework/plugin snippets:
-					--    https://github.com/rafamadriz/friendly-snippets
-					-- {
-					--   'rafamadriz/friendly-snippets',
-					--   config = function()
-					--     require('luasnip.loaders.from_vscode').lazy_load()
-					--   end,
-					-- },
-				},
-				opts = {},
-			},
-		},
-		--- @module 'blink.cmp'
-		--- @type blink.cmp.Config
-		opts = {
-			keymap = {
-				-- 'default' (recommended) for mappings similar to built-in completions
-				--   <c-y> to accept ([y]es) the completion.
-				--    This will auto-import if your LSP supports it.
-				--    This will expand snippets if the LSP sent a snippet.
-				--
-				-- All presets have the following mappings:
-				-- <tab>/<s-tab>: move to right/left of your snippet expansion
-				-- <c-space>: Open menu or open docs if already open
-				-- <c-n>/<c-p> or <up>/<down>: Select next/previous item
-				-- <c-e>: Hide menu
-				-- <c-k>: Toggle signature help
-				--
-				-- See :h blink-cmp-config-keymap for defining your own keymap
-				preset = "default",
-
-				-- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
-				--    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
-			},
-			completion = {
-				documentation = { auto_show = true },
-				accept = { auto_brackets = { enabled = false } },
-				menu = {
-					draw = {
-						columns = {
-							{ "label", "label_description", gap = 1 },
-							{ "kind" },
-						},
-					},
-					auto_show = false,
-				},
-			},
-			sources = {
-				default = { "lsp", "path", "snippets" },
-			},
-			snippets = { preset = "luasnip" },
-
-			-- Blink.cmp includes an optional, recommended rust fuzzy matcher,
-			-- which automatically downloads a prebuilt binary when enabled.
-			--
-			-- By default, we use the Lua implementation instead, but you may enable
-			-- the rust implementation via `'prefer_rust_with_warning'`
-			--
-			-- See :h blink-cmp-config-fuzzy for more information
-			fuzzy = { implementation = "lua" },
-
-			-- Shows a signature help window while you type arguments for a function
-			signature = { enabled = true },
-		},
-	},
+	--
+	-- { -- Autocompletion
+	-- 	"saghen/blink.cmp",
+	-- 	event = "VimEnter",
+	-- 	version = "1.*",
+	-- 	dependencies = {
+	-- 		-- Snippet Engine
+	-- 		{
+	-- 			"L3MON4D3/LuaSnip",
+	-- 			version = "2.*",
+	-- 			build = (function()
+	-- 				-- Build Step is needed for regex support in snippets.
+	-- 				-- This step is not supported in many windows environments.
+	-- 				-- Remove the below condition to re-enable on windows.
+	-- 				if vim.fn.has("win32") == 1 or vim.fn.executable("make") == 0 then
+	-- 					return
+	-- 				end
+	-- 				return "make install_jsregexp"
+	-- 			end)(),
+	-- 			dependencies = {
+	-- 				-- `friendly-snippets` contains a variety of premade snippets.
+	-- 				--    See the README about individual language/framework/plugin snippets:
+	-- 				--    https://github.com/rafamadriz/friendly-snippets
+	-- 				-- {
+	-- 				--   'rafamadriz/friendly-snippets',
+	-- 				--   config = function()
+	-- 				--     require('luasnip.loaders.from_vscode').lazy_load()
+	-- 				--   end,
+	-- 				-- },
+	-- 			},
+	-- 			opts = {},
+	-- 		},
+	-- 	},
+	-- 	--- @module 'blink.cmp'
+	-- 	--- @type blink.cmp.Config
+	-- 	opts = {
+	-- 		keymap = {
+	-- 			-- 'default' (recommended) for mappings similar to built-in completions
+	-- 			--   <c-y> to accept ([y]es) the completion.
+	-- 			--    This will auto-import if your LSP supports it.
+	-- 			--    This will expand snippets if the LSP sent a snippet.
+	-- 			--
+	-- 			-- All presets have the following mappings:
+	-- 			-- <tab>/<s-tab>: move to right/left of your snippet expansion
+	-- 			-- <c-space>: Open menu or open docs if already open
+	-- 			-- <c-n>/<c-p> or <up>/<down>: Select next/previous item
+	-- 			-- <c-e>: Hide menu
+	-- 			-- <c-k>: Toggle signature help
+	-- 			--
+	-- 			-- See :h blink-cmp-config-keymap for defining your own keymap
+	-- 			preset = "default",
+	--
+	-- 			-- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
+	-- 			--    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
+	-- 		},
+	-- 		completion = {
+	-- 			documentation = { auto_show = true },
+	-- 			accept = { auto_brackets = { enabled = false } },
+	-- 			menu = {
+	-- 				draw = {
+	-- 					columns = {
+	-- 						{ "label", "label_description", gap = 1 },
+	-- 						{ "kind" },
+	-- 					},
+	-- 				},
+	-- 				auto_show = false,
+	-- 			},
+	-- 		},
+	-- 		sources = {
+	-- 			default = { "lsp", "path", "snippets" },
+	-- 		},
+	-- 		snippets = { preset = "luasnip" },
+	--
+	-- 		-- Blink.cmp includes an optional, recommended rust fuzzy matcher,
+	-- 		-- which automatically downloads a prebuilt binary when enabled.
+	-- 		--
+	-- 		-- By default, we use the Lua implementation instead, but you may enable
+	-- 		-- the rust implementation via `'prefer_rust_with_warning'`
+	-- 		--
+	-- 		-- See :h blink-cmp-config-fuzzy for more information
+	-- 		fuzzy = { implementation = "lua" },
+	--
+	-- 		-- Shows a signature help window while you type arguments for a function
+	-- 		signature = { enabled = true },
+	-- 	},
+	-- },
 	{ -- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
