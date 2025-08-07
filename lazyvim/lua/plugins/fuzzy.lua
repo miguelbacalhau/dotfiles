@@ -10,10 +10,16 @@ return {
 				row = 1, -- window row position (0=top, 1=bottom)
 				col = 0, -- window col position (0=left, 1=right)
 			},
+			keymap = {
+				fzf = {
+					["ctrl-q"] = "select-all+accept",
+				},
+			},
 		})
 
 		-- See `:help telescope.builtin`
 		local builtin = require("fzf-lua")
+
 		vim.keymap.set("n", "<leader>p", builtin.files, { desc = "Search [F]iles" })
 		vim.keymap.set("n", "<leader>b", builtin.buffers, { desc = "Search open [B]uffers" })
 		vim.keymap.set("n", "<leader>g", function()
