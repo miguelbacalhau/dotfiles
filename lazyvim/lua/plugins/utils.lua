@@ -10,18 +10,30 @@ return {
 		end,
 	},
 	{
-		"echasnovski/mini.files",
+		"nvim-tree/nvim-tree.lua",
 		version = "*",
 		config = function()
-			require("mini.files").setup()
+			vim.g.loaded_netrw = 1
+			vim.g.loaded_netrwPlugin = 1
 
-			local minifiles_toggle = function(...)
-				if not MiniFiles.close() then
-					MiniFiles.open(...)
-				end
+			require("nvim-tree").setup({
+				renderer = {
+					icons = {
+						show = {
+							file = false,
+							folder = false,
+						},
+					},
+				},
+			})
+
+			local api = require("nvim-tree.api")
+
+			local find_file = function()
+				api.tree.toggle({ focus = true, find_file = true })
 			end
 
-			vim.keymap.set("n", "<leader>;", minifiles_toggle)
+			vim.keymap.set("n", "<leader>;", find_file)
 		end,
 	},
 }
