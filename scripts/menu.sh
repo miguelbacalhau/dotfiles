@@ -10,9 +10,24 @@ case "$STATE" in
 
   # Main menu
   "")
+    echo -e " Terminal\0icon\x1fterminal"
+    echo -e " Browser\0icon\x1fbrowser"
+    echo -e " Files\0icon\x1ffiles"
     echo -e " Capture\0icon\x1fcapture"
     echo -e " Network\0icon\x1fcapture"
     echo -e "⏻ Power\0icon\x1fpower"
+    ;;
+
+  # Power submenu
+  " Terminal") launch ghostty
+    ;;
+
+  # Power submenu
+  " Browser") launch brave
+    ;;
+
+  # Power submenu
+  " Files") launch nautilus
     ;;
 
   # Power submenu

@@ -22,8 +22,8 @@
   ],
   "custom/rofi": {
     "format": "<span ></span>",
-    "on-click": "rofi -show drun",
-    "on-click-right": "rofi -show menu -modes 'menu:~/.config/scripts/menu.sh'",
+    "on-click": "rofi -show menu -modes 'menu:~/.config/scripts/menu.sh'",
+    "on-click-right": "rofi -show drun",
     "escape": true,
     "tooltip": false
   },
