@@ -1,0 +1,62 @@
+* {
+  margin : 0;
+  padding : 0;
+  spacing : 0;
+
+  dark : #31353f;
+  border:  #2b6f77;
+  border-selected: #993939;
+  cyan: #56b6c2;
+  green: #56b6c2;
+  red : #e86671;
+  red-alt : #993939;
+  yellow : #ebd09c;
+  cream : #93691d;
+
+  transparent : #00000000;
+  font : "MonaspiceNe Nerd Font 12";
+  text-color : @dark;
+}
+
+window {
+  width : 35%;
+  location : center;
+  children : [listview];
+  padding : 0;
+  border : 3px;
+  background-color : @transparent;
+  border-color : @transparent;
+}
+
+listview {
+  lines : 1;
+  columns : 4;
+  margin : 0px;
+  padding : 6px 4px;
+  background-color : @background;
+  border : 5px;
+  border-color : @border;
+  cycle : false;
+}
+
+element {
+  background-color : @dark;
+  padding : 0px;
+  border : 5px;
+  border-color : @border;
+  margin : 0 4px;
+}
+
+element-text {
+  text-color : @dark;
+  padding : 8px ;
+  margin : 0;
+  background-color : @cyan;
+  vertical-align : 0.5;
+  horizontal-align : 0.5;
+}
+
+element-text selected {
+  margin : 0px;
+  background-color : @red;
+}

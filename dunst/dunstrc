@@ -1,0 +1,19 @@
+[global]
+font = MonaspiceNe Nerd Font 11
+frame_color = "#56b6c2"
+separator_color = "#2b6f77"
+
+[base16_low]
+    msg_urgency = "low"
+    background = "#282c34"
+    foreground = "#abb2bf"
+
+[base16_normal]
+    msg_urgency = "normal"
+    background = "#3e4451"
+    foreground = "#abb2bf"
+
+[base16_critical]
+    msg_urgency = "critical"
+    background = "#e06c75"
+    foreground = "#b6bdca"

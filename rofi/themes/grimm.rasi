@@ -1,0 +1,127 @@
+* {
+  margin : 0;
+  padding : 0;
+  spacing : 0;
+  background : #31353f;
+  foreground: #abb2bf;
+  border:  #2b6f77;
+  cyan: #56b6c2;
+  red : #e86671;
+  red-alt : #993939;
+  yellow : #ebd09c;
+  cream : #93691d;
+  highlight : underline bold #e86671;
+  font : "MonaspiceNe Nerd Font Propo 14";
+}
+
+configuration {
+  display-drun: "";
+  display-run : "";
+  display-window : "";
+  display-menu: "";
+}
+
+window {
+  width : 25%;
+  border : 3px;
+  border-color : @border;
+  background-color : @background;
+  location : center;
+  orientaion : horizontal;
+  children : [inputbar, message, listview];
+}
+
+inputbar {
+  background-color : @background;
+  children : [prompt,entry];
+}
+
+prompt {
+  margin : 6px 0 6px 6px;
+  padding : 3px 6px;
+  text-color : @background;
+  border : 3px;
+  border-color : @cyan;
+  background-color : @cyan;
+}
+
+entry {
+  margin : 6px;
+  padding : 3px 6px;
+  text-color : @foreground;
+  border : 3px;
+  border-color : @border;
+  background-color : @background;
+}
+
+listview {
+  lines : 8;
+  children : [element];
+  margin : 0 6px 6px 6px;
+  padding : 6px 6px 0px 6px;
+  border : 3px;
+  border-color : @border;
+  background-color : @background;
+}
+
+element {
+  margin : 0 0 6px 0 ;
+  background-color : @background;
+}
+
+element selected active {
+  text-color : @cream;
+  background-color : @red-alt;
+}
+
+element-text {
+  padding : 6px;
+  text-color : @foreground;
+  background-color : @background;
+}
+
+element-text selected {
+  text-color : @background;
+  background-color : @yellow;
+}
+
+element-text selected active {
+  text-color : @cream;
+  background-color : @red-alt;
+}
+
+element-icon{
+  size : 20px;
+  padding : 6px;
+  background-color : @background;
+}
+
+element-icon selected {
+  text-color : @background;
+  background-color : @yellow;
+}
+
+element-icon selected active {
+  text-color : @cream;
+  background-color : @red-alt;
+}
+
+message {
+  margin : 0;
+  expand : true;
+  background-color : @background;
+  children : [textbox];
+}
+
+textbox {
+  expand : true;
+  padding : 6px;
+  border-color : @red-alt;
+  background-color : @background;
+  text-color : @red-alt;
+}
+
+error-message {
+  expand : true;
+  text-color : @background;
+}
