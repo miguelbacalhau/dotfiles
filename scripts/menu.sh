@@ -35,7 +35,7 @@ case "$STATE" in
 
   # Power actions
   " Lock")     launch hyprlock ;;
-  "󰑓 Reboot")   pkexec systemctl reboot >/dev/null 2>&1 & ;;
-  "⏻ Shutdown") pkexec systemctl poweroff >/dev/null 2>&1 & ;;
+  "󰑓 Reboot")   systemctl reboot >/dev/null 2>&1 & ;;
+  "⏻ Shutdown") systemctl poweroff >/dev/null 2>&1 & ;;
 
 esac
