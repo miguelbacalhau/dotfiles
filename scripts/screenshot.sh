@@ -19,4 +19,8 @@ case "$1" in
     ;;
 esac
 
-notify-send -t 2000 "Screenshot saved" "$EXT"
+ICON_THEME=$(gsettings get org.gnome.desktop.interface icon-theme | tr -d "'")
+ICON="/usr/share/icons/$ICON_THEME/16x16/mimetypes/image-x-generic.png"
+[ -f "$ICON" ] || ICON="/usr/share/icons/hicolor/16x16/mimetypes/image-x-generic.png"
+
+notify-send -t 2000 -i "$ICON" "Screenshot saved" "$EXT"
