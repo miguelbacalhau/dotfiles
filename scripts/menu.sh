@@ -13,6 +13,7 @@ case "$STATE" in
     echo -e " Terminal\0icon\x1fterminal"
     echo -e " Browser\0icon\x1fbrowser"
     echo -e " Files\0icon\x1ffiles"
+    echo -e " Music\0icon\x1fmusic"
     echo -e " Capture\0icon\x1fcapture"
     echo -e " Network\0icon\x1fcapture"
     echo -e "⏻ Power\0icon\x1fpower"
@@ -28,6 +29,10 @@ case "$STATE" in
 
   # Power submenu
   " Files") launch nautilus
+    ;;
+
+  # Power submenu
+  " Music") launch spotify
     ;;
 
   # Power submenu
