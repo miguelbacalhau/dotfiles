@@ -23,7 +23,7 @@
   "custom/rofi": {
     "format": "<span ></span>",
     "on-click": "rofi -show drun",
-    "on-click-right": "~/.config/scripts/power.sh",
+    "on-click-right": "rofi -show menu -modes 'menu:~/.config/scripts/menu.sh'",
     "escape": true,
     "tooltip": false
   },
