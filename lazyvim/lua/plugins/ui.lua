@@ -7,7 +7,6 @@ return {
 			vim.cmd.colorscheme("onedark")
 		end,
 	},
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	-- status line
 	{
 		"nvim-lualine/lualine.nvim",
