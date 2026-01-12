@@ -6,5 +6,5 @@ font-family = MonaspiceNe Nerd Font
 font-size = 10
 font-feature = -calt, -liga, -dlig
 
-gtk-tabs-location = bottom
-macos-titlebar-style = tabs
+macos-titlebar-proxy-icon = hidden
+title = " "
