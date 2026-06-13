@@ -81,3 +81,6 @@ source "$ZDOTDIR/prompt.zsh"
 
 # Aliases
 source "$ZDOTDIR/aliases.zsh"
+
+# Plugins and plugin manager
+source "$ZDOTDIR/plugins.zsh"
