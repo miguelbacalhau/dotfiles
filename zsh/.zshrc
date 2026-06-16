@@ -12,6 +12,9 @@ HISTFILE="$XDG_STATE_HOME/zsh/history"
 HISTSIZE=100000
 SAVEHIST=100000
 
+# zsh won't create HISTFILE's parent dir; ensure it exists or history is lost
+mkdir -p "$XDG_STATE_HOME/zsh"
+
 setopt APPEND_HISTORY
 setopt SHARE_HISTORY
 setopt HIST_IGNORE_DUPS
