@@ -20,12 +20,13 @@ return {
 		-- See `:help telescope.builtin`
 		local builtin = require("fzf-lua")
 
-		vim.keymap.set("n", "<leader>p", builtin.files, { desc = "Search [F]iles" })
-		vim.keymap.set("n", "<leader>b", builtin.buffers, { desc = "Search open [B]uffers" })
+		vim.keymap.set("n", "<leader>p", builtin.files, { desc = "[FZF] Search Files" })
+		vim.keymap.set("n", "<leader>b", builtin.buffers, { desc = "[FZF] Search Buffers" })
 		vim.keymap.set("n", "<leader>g", function()
 			builtin.live_grep({ resume = true })
-		end, { desc = "Search by [G]rep" })
-		vim.keymap.set("n", "<leader>w", builtin.grep_cword, { desc = "[S]earch current [W]ord" })
-		vim.keymap.set("n", "<leader>k", builtin.spellcheck, { desc = "Current Word Spell Suggestion" })
+		end, { desc = "[FZF] Grep" })
+		vim.keymap.set("n", "<leader>w", builtin.grep_cword, { desc = "[FZF] Grep current Word" })
+		vim.keymap.set("n", "<leader>k", builtin.spellcheck, { desc = "[FZF] Spell Suggestion" })
+		vim.keymap.set("n", "<leader>m", builtin.keymaps, { desc = "[FZF] Keymaps" })
 	end,
 }
