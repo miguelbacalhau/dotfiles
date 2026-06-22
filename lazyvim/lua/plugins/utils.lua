@@ -13,7 +13,9 @@ return {
 		"nvim-mini/mini.jump2d",
 		version = "*",
 		config = function()
-			require("mini.jump2d").setup({
+			local MiniJump2d = require("mini.jump2d")
+
+			MiniJump2d.setup({
 				allowed_windows = {
 					not_current = false,
 				},
@@ -27,36 +29,55 @@ return {
 			end)
 		end,
 	},
+	-- {
+	-- 	"nvim-tree/nvim-tree.lua",
+	-- 	version = "*",
+	-- 	config = function()
+	-- 		vim.g.loaded_netrw = 1
+	-- 		vim.g.loaded_netrwPlugin = 1
+	--
+	-- 		require("nvim-tree").setup({
+	-- 			actions = {
+	-- 				open_file = {
+	-- 					quit_on_open = true,
+	-- 				},
+	-- 			},
+	-- 			renderer = {
+	-- 				icons = {
+	-- 					show = {
+	-- 						file = false,
+	-- 						folder = false,
+	-- 					},
+	-- 				},
+	-- 			},
+	-- 		})
+	--
+	-- 		local api = require("nvim-tree.api")
+	--
+	-- 		local find_file = function()
+	-- 			api.tree.toggle({ focus = true, find_file = true })
+	-- 		end
+	--
+	-- 		vim.keymap.set("n", "<leader>;", find_file)
+	-- 	end,
+	-- },
 	{
-		"nvim-tree/nvim-tree.lua",
+		"nvim-mini/mini.files",
 		version = "*",
 		config = function()
-			vim.g.loaded_netrw = 1
-			vim.g.loaded_netrwPlugin = 1
+			require("mini.files").setup()
 
-			require("nvim-tree").setup({
-				actions = {
-					open_file = {
-						quit_on_open = true,
-					},
-				},
-				renderer = {
-					icons = {
-						show = {
-							file = false,
-							folder = false,
-						},
-					},
-				},
-			})
+			local MiniFiles = require("mini.files")
 
-			local api = require("nvim-tree.api")
+			MiniFiles.setup()
 
-			local find_file = function()
-				api.tree.toggle({ focus = true, find_file = true })
-			end
+			vim.keymap.set("n", "<leader>;", function()
+				local _ = MiniFiles.close() or MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
 
-			vim.keymap.set("n", "<leader>;", find_file)
+				vim.schedule(function()
+					MiniFiles.reveal_cwd()
+				end)
+			end)
 		end,
 	},
 }
