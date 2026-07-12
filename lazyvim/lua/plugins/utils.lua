@@ -1,4 +1,5 @@
 return {
+	{ "miguelbacalhau/orca.nvim", opts = { mappings = { comment = "<leader>c", delete = "<leader>x" } } },
 	{ "nmac427/guess-indent.nvim" },
 	{
 		"nvim-mini/mini.surround",
@@ -16,17 +17,17 @@ return {
 			local MiniJump2d = require("mini.jump2d")
 
 			MiniJump2d.setup({
+				spotter = MiniJump2d.builtin_opts.word_start.spotter,
 				allowed_windows = {
 					not_current = false,
 				},
 				view = {
 					n_steps_ahead = 100,
 				},
+				mappings = {
+					start_jumping = "<leader>j",
+				},
 			})
-
-			vim.keymap.set({ "n" }, "<CR>", function()
-				MiniJump2d.start(MiniJump2d.builtin_opts.word_start)
-			end)
 		end,
 	},
 	-- {
