@@ -38,8 +38,9 @@ vim.o.signcolumn = "yes"
 -- Decrease update time
 vim.o.updatetime = 250
 
--- Decrease mapped sequence wait time
-vim.o.timeoutlen = 300
+-- Mapped sequence wait time. Not lower: a two-key map like ]q typed with a
+-- pause splits into a pending native ] that silently eats the next keys.
+vim.o.timeoutlen = 700
 
 -- Configure how new splits should be opened
 vim.o.splitright = true
