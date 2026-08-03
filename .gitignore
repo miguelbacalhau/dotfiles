@@ -1,0 +1,3 @@
+# Zsh plugins cloned at runtime by zsh/plugins.zsh into $ZDOTDIR/plugins
+# (which is this repo's zsh/plugins via the ~/.config/zsh symlink).
+zsh/plugins/
