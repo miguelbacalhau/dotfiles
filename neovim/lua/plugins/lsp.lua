@@ -74,10 +74,15 @@ return {
 				},
 			})
 
-			-- Broadcast Neovim's built-in capabilities to every server. The defaults
-			-- already advertise `completionItem.snippetSupport`, which is required for
-			-- snippet completion items to be returned and expanded natively.
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
+			-- vue_ls is only a thin server for the template/style parts of SFCs; all
+			-- TypeScript requests are forwarded to a ts server (vtsls here) that must
+			-- load @vue/typescript-plugin from the vue-language-server install.
+			local vue_plugin = {
+				name = "@vue/typescript-plugin",
+				location = vim.fn.expand("$MASON/packages/vue-language-server/node_modules/@vue/language-server"),
+				languages = { "vue" },
+				configNamespace = "typescript",
+			}
 
 			local servers = {
 
@@ -90,7 +95,26 @@ return {
 						},
 					},
 				},
+
+				vtsls = {
+					settings = {
+						vtsls = {
+							tsserver = {
+								globalPlugins = {
+									vue_plugin,
+								},
+							},
+						},
+					},
+					filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+				},
+
+				vue_ls = {},
 			}
+
+			for name, config in pairs(servers) do
+				vim.lsp.config(name, config)
+			end
 
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
@@ -98,17 +122,9 @@ return {
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
-			require("mason-lspconfig").setup({
-				ensure_installed = {},
-				automatic_installation = false,
-				handlers = {
-					function(server_name)
-						local server = servers[server_name] or {}
-						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-						require("lspconfig")[server_name].setup(server)
-					end,
-				},
-			})
+			-- mason-lspconfig v2 auto-enables every Mason-installed server via
+			-- vim.lsp.enable; the v1 handlers/automatic_installation options are gone.
+			require("mason-lspconfig").setup()
 		end,
 	},
 
