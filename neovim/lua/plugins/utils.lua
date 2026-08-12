@@ -42,55 +42,55 @@ return {
 			})
 		end,
 	},
-	-- {
-	-- 	"nvim-tree/nvim-tree.lua",
-	-- 	version = "*",
-	-- 	config = function()
-	-- 		vim.g.loaded_netrw = 1
-	-- 		vim.g.loaded_netrwPlugin = 1
-	--
-	-- 		require("nvim-tree").setup({
-	-- 			actions = {
-	-- 				open_file = {
-	-- 					quit_on_open = true,
-	-- 				},
-	-- 			},
-	-- 			renderer = {
-	-- 				icons = {
-	-- 					show = {
-	-- 						file = false,
-	-- 						folder = false,
-	-- 					},
-	-- 				},
-	-- 			},
-	-- 		})
-	--
-	-- 		local api = require("nvim-tree.api")
-	--
-	-- 		local find_file = function()
-	-- 			api.tree.toggle({ focus = true, find_file = true })
-	-- 		end
-	--
-	-- 		vim.keymap.set("n", "<leader>;", find_file)
-	-- 	end,
-	-- },
 	{
-		"nvim-mini/mini.files",
+		"nvim-tree/nvim-tree.lua",
 		version = "*",
 		config = function()
-			require("mini.files").setup()
+			vim.g.loaded_netrw = 1
+			vim.g.loaded_netrwPlugin = 1
 
-			local MiniFiles = require("mini.files")
+			require("nvim-tree").setup({
+				actions = {
+					open_file = {
+						quit_on_open = true,
+					},
+				},
+				renderer = {
+					icons = {
+						show = {
+							file = false,
+							folder = false,
+						},
+					},
+				},
+			})
 
-			MiniFiles.setup()
+			local api = require("nvim-tree.api")
 
-			vim.keymap.set("n", "<leader>;", function()
-				local _ = MiniFiles.close() or MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
+			local find_file = function()
+				api.tree.toggle({ focus = true, find_file = true })
+			end
 
-				vim.schedule(function()
-					MiniFiles.reveal_cwd()
-				end)
-			end)
+			vim.keymap.set("n", "<leader>;", find_file)
 		end,
 	},
+	-- {
+	-- 	"nvim-mini/mini.files",
+	-- 	version = "*",
+	-- 	config = function()
+	-- 		require("mini.files").setup()
+	--
+	-- 		local MiniFiles = require("mini.files")
+	--
+	-- 		MiniFiles.setup()
+	--
+	-- 		vim.keymap.set("n", "<leader>;", function()
+	-- 			local _ = MiniFiles.close() or MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
+	--
+	-- 			vim.schedule(function()
+	-- 				MiniFiles.reveal_cwd()
+	-- 			end)
+	-- 		end)
+	-- 	end,
+	-- },
 }
