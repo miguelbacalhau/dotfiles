@@ -1,5 +1,17 @@
 return {
-	{ "miguelbacalhau/orca.nvim", opts = { mappings = { comment = "<leader>c", delete = "<leader>x" } } },
+	{
+		"miguelbacalhau/orca.nvim",
+		opts = {
+			mappings = {
+				next = "<leader>q",
+				prev = "<leader>Q",
+				comment = "<leader>a",
+				delete = "<leader>x",
+				comment_next = "<leader>c",
+				comment_prev = "<leader>C",
+			},
+		},
+	},
 	{ "nmac427/guess-indent.nvim" },
 	{
 		"nvim-mini/mini.surround",
