@@ -144,9 +144,12 @@ return {
 		},
 		opts = {
 			notify_on_error = false,
+			-- Never fall back to LSP formatting on save: vtsls attaches to
+			-- vue/ts/js buffers and its tsserver-style formatting fights the
+			-- project's Prettier config. Only explicit formatters_by_ft run.
 			format_on_save = {
 				timeout_ms = 500,
-				lsp_format = "fallback",
+				lsp_format = "never",
 			},
 			formatters_by_ft = {
 				lua = { "stylua" },
