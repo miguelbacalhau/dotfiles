@@ -23,33 +23,22 @@ vim.api.nvim_create_autocmd("PackChanged", {
 	end,
 })
 
--- Order matters for setup(): colorscheme first, mason before mason-lspconfig.
+-- Each module calls vim.pack.add() for its own plugins and configures them
+-- immediately after, which is the shape :h vim.pack models. Order matters:
+-- plugins.ui applies the colorscheme first, and inside plugins.lsp mason is
+-- set up before mason-lspconfig. Tradeoff: a first install on a new machine
+-- clones one module at a time instead of all plugins in parallel.
 local modules = { "plugins.ui", "plugins.fuzzy", "plugins.git", "plugins.lsp", "plugins.utils" }
 
-local specs, setups = {}, {}
-for _, name in ipairs(modules) do
-	local mod = require(name)
-	vim.list_extend(specs, mod.specs)
-	if mod.setup then
-		setups[#setups + 1] = { name = name, fn = mod.setup }
-	end
-end
-
--- One call: installs missing plugins in parallel (no prompt, like lazy did),
--- then :packadd!'s every plugin so all lua/ and colors/ dirs are on 'rtp'
--- before any setup() below runs.
-vim.pack.add(specs, { confirm = false })
-
--- Run every setup() even if one raises, then report all failures together.
--- An unguarded loop stops at the first error and leaves every later module
--- unconfigured, so one broken plugin takes out unrelated ones. Failures are
--- still fatal -- nothing is swallowed. vim.pack.add() collects errors the same
--- way (see `errors` in runtime/lua/vim/pack.lua).
+-- Load every module even if one raises, then report all failures together.
+-- Stopping at the first error would leave every later module unconfigured, so
+-- one broken plugin takes out unrelated ones. Nothing is swallowed: a failure
+-- is still fatal. vim.pack.add() collects errors the same way.
 local errors = {}
-for _, setup in ipairs(setups) do
-	local ok, err = pcall(setup.fn)
+for _, name in ipairs(modules) do
+	local ok, err = pcall(require, name)
 	if not ok then
-		errors[#errors + 1] = ("`%s`:\n%s"):format(setup.name, err)
+		errors[#errors + 1] = ("`%s`:\n%s"):format(name, err)
 	end
 end
 
