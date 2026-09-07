@@ -31,7 +31,7 @@ for _, name in ipairs(modules) do
 	local mod = require(name)
 	vim.list_extend(specs, mod.specs)
 	if mod.setup then
-		setups[#setups + 1] = mod.setup
+		setups[#setups + 1] = { name = name, fn = mod.setup }
 	end
 end
 
@@ -40,6 +40,19 @@ end
 -- before any setup() below runs.
 vim.pack.add(specs, { confirm = false })
 
+-- Run every setup() even if one raises, then report all failures together.
+-- An unguarded loop stops at the first error and leaves every later module
+-- unconfigured, so one broken plugin takes out unrelated ones. Failures are
+-- still fatal -- nothing is swallowed. vim.pack.add() collects errors the same
+-- way (see `errors` in runtime/lua/vim/pack.lua).
+local errors = {}
 for _, setup in ipairs(setups) do
-	setup()
+	local ok, err = pcall(setup.fn)
+	if not ok then
+		errors[#errors + 1] = ("`%s`:\n%s"):format(setup.name, err)
+	end
+end
+
+if #errors > 0 then
+	error(("config.pack:\n\n%s"):format(table.concat(errors, "\n\n")))
 end
