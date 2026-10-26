@@ -18,5 +18,9 @@ elif [[ -x /usr/local/bin/brew ]]; then
   eval "$(/usr/local/bin/brew shellenv)"      # Intel
 fi
 
+# ---------- Local binaries ----------
+# Tools built from source (trk) install here.
+export PATH="$HOME/.local/bin:$PATH"
+
 # ---------- Starship ----------
 export STARSHIP_CONFIG="$ZDOTDIR/starship.toml"
